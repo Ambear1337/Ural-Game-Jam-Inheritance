@@ -7,5 +7,21 @@ public enum CreatureType
     Animal,
     Insect,
     Plant,
-    Sea
+    Sea,
+    Gargoyle,
+    Coloss,
+    Automation,
+    Ent,
+    Aquamech,
+    Wyvern,
+    Drake,
+    Treant,
+    Leviathan,
+    Vermin,
+    Beast,
+    Kraken,
+    Swarm,
+    Parasite,
+    Shell,
+    Serpent
 }

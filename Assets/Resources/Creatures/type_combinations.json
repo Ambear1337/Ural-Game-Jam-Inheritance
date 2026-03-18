@@ -1,0 +1,23 @@
+﻿{
+  "combinations": [
+    { "element1": "Golem", "element2": "Dragon", "result": "Gargoyle" },
+    { "element1": "Golem", "element2": "Animal", "result": "Coloss" },
+    { "element1": "Golem", "element2": "Insect", "result": "Automaton" },
+    { "element1": "Golem", "element2": "Plant", "result": "Ent" },
+    { "element1": "Golem", "element2": "Sea", "result": "Aquamech" },
+
+    { "element1": "Dragon", "element2": "Animal", "result": "Wyvern" },
+    { "element1": "Dragon", "element2": "Insect", "result": "Drake" },
+    { "element1": "Dragon", "element2": "Plant", "result": "Treant" },
+    { "element1": "Dragon", "element2": "Sea", "result": "Leviathan" },
+
+    { "element1": "Animal", "element2": "Insect", "result": "Vermin" },
+    { "element1": "Animal", "element2": "Plant", "result": "Beast" },
+    { "element1": "Animal", "element2": "Sea", "result": "Kraken" },
+
+    { "element1": "Insect", "element2": "Plant", "result": "Parasite" },
+    { "element1": "Insect", "element2": "Sea", "result": "Shell" },
+
+    { "element1": "Plant", "element2": "Sea", "result": "Serpent" }
+  ]
+}
