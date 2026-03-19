@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Creature
+public class Creature: MonoBehaviour
 {
     private string _id; // Уникальный ID для сохранения
     private CreatureType _type;       // Например: Dragon, Golem
