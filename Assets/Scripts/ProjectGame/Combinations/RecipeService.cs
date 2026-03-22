@@ -1,67 +1,46 @@
+using System;
 using UnityEngine;
 using Sisus.Init;
 using System.Collections.Generic;
 
 namespace ProjectGame.Combinations
 {
-    [Service(typeof(IRecipeService), Instantiate = true)] 
-    public class RecipeService: MonoBehaviour<CombinationsTable>, IRecipeService
+    [Service(AddressableKey="RecipeService", Instantiate = true)]
+    public class RecipeService: MonoBehaviour
     {
-        private Dictionary<string, string> _typeRecipes = new();
-        private Dictionary<string, string> _elementRecipes = new();
+        [SerializeField] private List<CreatureTypeRecipeTemplate> _typeCombinations;
+        [SerializeField] private List<CreatureElementRecipeTemplate> _elementCombinations;
 
-        // В Init мы можем загрузить данные.
-        // Так как это Service, Init вызывается автоматически при старте игры.
-        
-        protected override void Init(CombinationsTable argument)
+        public CreatureType TryGetTypeResult(CreatureType type1, CreatureType type2)
         {
-            LoadRecipes();
-        }
-
-        private void LoadRecipes()
-        {
-            // Здесь ты можешь загрузить JSON из Resources, TextAsset или hardcoded строк.
-            // Для примера предположим, что у тебя есть TextAsset в Resources
-            var typesJson = Resources.Load<TextAsset>("Creatures/type_combinations").text;
-            var elementsJson = Resources.Load<TextAsset>("Creatures/element_combinations").text;
+            CreatureType result = CreatureType.Parasite;
             
-            ParseJson(typesJson, _typeRecipes);
-            ParseJson(elementsJson, _elementRecipes);
-        }
-        
-        private void ParseJson(string json, Dictionary<string, string> targetDict)
-        {
-            if (string.IsNullOrEmpty(json)) return;
-
-            try 
+            for (int i = 0; i < _typeCombinations.Count; i++)
             {
-                var table = JsonUtility.FromJson<CombinationsTable>(json);
-                if (table?.Combinations == null) return;
+                if ((_typeCombinations[i].Type1 != type1 || _typeCombinations[i].Type2 != type2) &&
+                    (_typeCombinations[i].Type1 != type2 || _typeCombinations[i].Type2 != type1)) continue;
+                
+                result = _typeCombinations[i].Result;
+                return result;
+            }
 
-                foreach (var entry in table.Combinations)
-                {
-                    // Создаем ключ в отсортированном порядке, чтобы Fire+Water == Water+Fire
-                    string key = CreateSortedKey(entry.key1, entry.key2);
-                    
-                    if (!targetDict.ContainsKey(key))
-                    {
-                        targetDict[key] = entry.result;
-                    }
-                }
-            }
-            catch (System.Exception e)
-            {
-                Debug.LogError($"[RecipeService] Ошибка парсинга JSON: {e.Message}");
-            }
+            return result;
         }
 
-        public bool TryGetResult(string item1, string item2, out string result, bool isTypeCheck)
+        public CreatureElement TryGetElementResult(CreatureElement element1, CreatureElement element2)
         {
-            var dict = isTypeCheck ? _typeRecipes : _elementRecipes;
-            string key = CreateSortedKey(item1, item2);
-            return dict.TryGetValue(key, out result);
-        }
+            CreatureElement result = CreatureElement.Void;
+            
+            for (int i = 0; i < _typeCombinations.Count; i++)
+            {
+                if ((_elementCombinations[i].Element1 != element1 || _elementCombinations[i].Element2 != element2) &&
+                    (_elementCombinations[i].Element1 != element2 || _elementCombinations[i].Element2 != element1)) continue;
+                
+                result = _elementCombinations[i].Result;
+                return result;
+            }
 
-        private string CreateSortedKey(string a, string b) => string.Compare(a, b) < 0 ? $"{a}+{b}" : $"{b}+{a}";
+            return result;
+        }
     }
 }

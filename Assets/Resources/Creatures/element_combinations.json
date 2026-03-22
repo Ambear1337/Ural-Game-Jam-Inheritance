@@ -5,7 +5,6 @@
     { "key1": "Fire", "key2": "Air", "result": "Explosion" },
     { "key1": "Fire", "key2": "Void", "result": "Plasma" },
     { "key1": "Fire", "key2": "Light", "result": "Energy" },
-    { "key1": "Fire", "key2": "Space", "result": "Star" },
     { "key1": "Fire", "key2": "Poison", "result": "Acid" },
     { "key1": "Fire", "key2": "Death", "result": "Ash" },
 

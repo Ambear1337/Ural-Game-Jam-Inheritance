@@ -4,7 +4,7 @@ using UnityEngine.Pool;
 
 namespace ProjectGame
 {
-    [Service(AddressableKey = "CharactersPool", Instantiate = true)]
+    [Service(AddressableKey = "CreaturesPool", FindFromScene = true)]
     public class CreaturesPool: MonoBehaviour
     {
         // The pool holds plain GameObjects (you can swap this for any component type).
@@ -21,8 +21,8 @@ namespace ProjectGame
                 actionOnRelease: OnRelease,
                 actionOnDestroy: OnDestroyItem,
                 collectionCheck: true,   // helps catch double-release mistakes
-                defaultCapacity: 3,
-                maxSize: 5
+                defaultCapacity: 4,
+                maxSize: 8
             );
         }
 
@@ -30,7 +30,7 @@ namespace ProjectGame
         private Creature CreateItem()
         {
             var creature = Instantiate(_creature);
-            creature.name = "Character";
+            creature.name = "Creature";
             creature.gameObject.SetActive(false);
             return creature;
         }

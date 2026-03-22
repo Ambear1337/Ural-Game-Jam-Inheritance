@@ -1,24 +1,36 @@
+using ProjectGame;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class Creature: MonoBehaviour
 {
-    private string _id; // Уникальный ID для сохранения
-    private CreatureType _type;       // Например: Dragon, Golem
-    private CreatureElement _element; // Например: Fire, Water
+    private CreatureType _type;
+    public CreatureType Type => _type;
     
-    // Характеристики (берутся средние при скрещивании)
-    private readonly ValueComponent _size = new ValueComponent();
-    private readonly ValueComponent _intelligence = new ValueComponent();
-    private readonly ValueComponent _aggression = new ValueComponent();
+    private CreatureElement _element;
+    public CreatureElement Element => _element;
 
-    private bool _isBroken; // Флаг "сломанного существа"
+    [SerializeField]
+    private ValueComponent _size;
+    public ValueComponent Size => _size;
+    [SerializeField]
+    private ValueComponent _intelligence;
+    public ValueComponent Intelligence => _intelligence;
+    [SerializeField]
+    private ValueComponent _aggression;
+    public ValueComponent Aggression => _aggression;
+    private CreatureDescription _creatureDescription;
+    public CreatureDescription CreatureDescription => _creatureDescription;
 
-    public Creature(CreatureType t, CreatureElement e, int s, int i, int a)
+    public void SetupCreature(CreatureDescription creatureDescription, CreatureElement element, int s, int i, int a)
     {
-        _type = t;
-        _element = e;
-        _size.SetMin(1);
+        _creatureDescription = creatureDescription;
+
+        if (!_creatureDescription) return;
+
+        _type = _creatureDescription.CreatureType;
+        _element = element;
+        _size.SetMin(0);
         _size.SetMax(10);
         _size.Set(s);
         _intelligence.SetMin(0);
@@ -26,8 +38,6 @@ public class Creature: MonoBehaviour
         _intelligence.Set(i);
         _aggression.SetMin(0);
         _aggression.SetMax(10);
-        _aggression.Set(i);
-        _isBroken = false;
-        _id = System.Guid.NewGuid().ToString();
+        _aggression.Set(a);
     }
 }
