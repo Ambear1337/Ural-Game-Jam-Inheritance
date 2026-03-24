@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace ProjectGame.UI
 {
-    public class CreatureSlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler
+    public class CreatureSlotUI : MonoBehaviour<DragAndDropManager>, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler
     {
         [SerializeField] private Image backgroundImage;  // Фон слота (например, рамка)
         [SerializeField] private Image itemImage;        // Иконка предмета
@@ -13,14 +13,24 @@ namespace ProjectGame.UI
         private bool _isSelected = false;
         private CreatureSlot _slotData;
         private int _slotIndex;
+        private InventoryUI _fromInventoryUI;
+        public InventoryUI FromInventoryUI => _fromInventoryUI;
         private InventoryUI _inventoryUI;
+        public InventoryUI InventoryUI => _inventoryUI;
 
         // Для drag&drop
         private CanvasGroup _canvasGroup;
         private RectTransform _rectTransform;
         
+        private DragAndDropManager _dragAndDropManager;
+        
+        protected override void Init(DragAndDropManager argument)
+        {
+            _dragAndDropManager = argument;
+        }
+        
         // ReSharper disable Unity.PerformanceAnalysis
-        private void Awake()
+        protected override void OnAwake()
         {
             _canvasGroup = GetComponent<CanvasGroup>();
             _rectTransform = GetComponent<RectTransform>();
@@ -67,8 +77,10 @@ namespace ProjectGame.UI
         {
             if (_slotData == null || _slotData.IsEmpty) return;
 
+            _fromInventoryUI = _inventoryUI;
+            
             _canvasGroup.blocksRaycasts = false;
-            _inventoryUI.StartDragging(this, _slotData);
+            _dragAndDropManager.StartDragging(this, _slotData);
         }
 
         // Во время перетаскивания
@@ -76,7 +88,7 @@ namespace ProjectGame.UI
         {
             if (_slotData == null || _slotData.IsEmpty) return;
 
-            _inventoryUI.Drag(eventData);
+            _dragAndDropManager.Drag(eventData);
         }
 
         // Отпускание предмета
@@ -84,13 +96,13 @@ namespace ProjectGame.UI
         {
             _canvasGroup.blocksRaycasts = true;
 
-            _inventoryUI.EndDragging(eventData);
+            _dragAndDropManager.EndDragging(eventData);
         }
 
         // Обработка дропа предмета на этот слот
         public void OnDrop(PointerEventData eventData)
         {
-            _inventoryUI.HandleDrop(this, eventData);
+            _dragAndDropManager.HandleDrop(this, eventData);
         }
 
         public int GetSlotIndex()

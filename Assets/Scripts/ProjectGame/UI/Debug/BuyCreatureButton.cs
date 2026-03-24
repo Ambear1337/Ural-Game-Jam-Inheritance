@@ -20,7 +20,7 @@ namespace ProjectGame.UI.Debug
         
         public void BuyRandomCreature()
         {
-            if (_player.TryToSubtractCoins(_cost))
+            if (!_player.Inventory.GetIsFull() && _player.TryToSubtractCoins(_cost))
             {
                 _creatureSpawner.SpawnRandomCreature();
             }

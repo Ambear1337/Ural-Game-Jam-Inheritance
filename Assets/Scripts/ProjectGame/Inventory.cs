@@ -14,7 +14,7 @@ namespace ProjectGame
         private int _maxSlots;
         public int MaxSlots => _maxSlots;
         
-        private List<CreatureSlot> _slots = new List<CreatureSlot>();
+        private List<CreatureSlot> _slots;
         public List<CreatureSlot> Slots => _slots;
         
         private void Awake()
@@ -34,6 +34,16 @@ namespace ProjectGame
             _maxSlots = maxSlots;
         }
 
+        public bool GetIsFull()
+        {
+            for (int i = 0; i < _slots.Count; i++)
+            {
+                if (_slots[i].IsEmpty) return false;
+            }
+
+            return true;
+        }
+
         // Добавить предмет в инвентарь, возвращает true если всё влезло
         public bool AddItem(Creature creature)
         {
@@ -43,7 +53,7 @@ namespace ProjectGame
             {
                 if (_slots[i].IsEmpty)
                 {
-                    _slots[i].Set(creature);
+                    _slots[i].Add(creature);
 
                     OnInventoryChanged?.Invoke();
                     return true;

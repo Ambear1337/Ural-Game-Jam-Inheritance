@@ -20,7 +20,7 @@
 
         public void Add(Creature newCreature)
         {
-            if (_creature == null)
+            if (IsEmpty)
             {
                 Set(newCreature);
             }

@@ -555,8 +555,8 @@ GameObject:
   - component: {fileID: 179935868}
   - component: {fileID: 179935867}
   - component: {fileID: 179935869}
-  - component: {fileID: 179935871}
   - component: {fileID: 179935872}
+  - component: {fileID: 179935873}
   m_Layer: 5
   m_Name: Combiner
   m_TagString: Untagged
@@ -637,27 +637,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.Combiner
   _combinerInventory: {fileID: 179935872}
---- !u!114 &179935871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179935865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f9477b8a448429989df6632e4f1b04b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ProjectGame::ProjectGame.UI.InventoryUI
-  _dragIcon: {fileID: 1962323528}
-  _rectTransform: {fileID: 179935866}
-  _openedPosition: {x: 0, y: 0}
-  _closedPosition: {x: 0, y: 0}
-  _slotUIs:
-  - {fileID: 1807956888}
-  - {fileID: 371923430}
-  - {fileID: 58259154}
-  _inventory: {fileID: 179935872}
 --- !u!114 &179935872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,6 +650,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: ProjectGame::ProjectGame.CombinerInventory
   _maxSlots: 3
+--- !u!114 &179935873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179935865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3534526c44b844a48fef65a74f57f08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectGame::ProjectGame.UI.CombinerInventoryUI
+  _rectTransform: {fileID: 179935866}
+  _slotUIs:
+  - {fileID: 1807956888}
+  - {fileID: 371923430}
+  - {fileID: 58259154}
+  _inventory: {fileID: 179935872}
 --- !u!1 &249702370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,13 +1378,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 549022622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f9477b8a448429989df6632e4f1b04b, type: 3}
+  m_Script: {fileID: 11500000, guid: 72c35b2f8cb945f38810a979407d90ee, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: ProjectGame::ProjectGame.UI.InventoryUI
-  _dragIcon: {fileID: 1962323528}
+  m_EditorClassIdentifier: ProjectGame::ProjectGame.UI.PlayerInventoryUI
   _rectTransform: {fileID: 549022623}
-  _openedPosition: {x: -681, y: 378}
-  _closedPosition: {x: -681, y: -269}
   _slotUIs:
   - {fileID: 1329118313}
   - {fileID: 1128699664}
@@ -1396,6 +1390,8 @@ MonoBehaviour:
   - {fileID: 1562121748}
   - {fileID: 282958862}
   _inventory: {fileID: 1280761595}
+  _openedPosition: {x: -681, y: 323}
+  _closedPosition: {x: -681, y: -269}
 --- !u!1001 &549293172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2740,6 +2736,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f0082a15984fdabf6d5b648438ec07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ProjectGame::ProjectGame.UI.CreatureSlotUI
+--- !u!1 &1187128306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187128308}
+  - component: {fileID: 1187128307}
+  m_Layer: 0
+  m_Name: DragAndDropManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1187128307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187128306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40bd61ce02f9cb7cfac949fb58dcda3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectGame::ProjectGame.UI.DragAndDropManager
+  _dragIcon: {fileID: 1962323528}
+--- !u!4 &1187128308
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187128306}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1280761594
 GameObject:
   m_ObjectHideFlags: 0
@@ -3702,7 +3743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3822,3 +3863,4 @@ SceneRoots:
   - {fileID: 1280761596}
   - {fileID: 1491874319}
   - {fileID: 1434322337}
+  - {fileID: 1187128308}
