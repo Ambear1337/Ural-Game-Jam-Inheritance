@@ -8,13 +8,13 @@ namespace ProjectGame
     public class Inventory: MonoBehaviour
     {
         public delegate void InventoryChanged();
-        public event InventoryChanged OnInventoryChanged;
+        protected internal event InventoryChanged OnInventoryChanged;
         
         [SerializeField]
         private int _maxSlots;
         public int MaxSlots => _maxSlots;
         
-        private List<CreatureSlot> _slots;
+        protected List<CreatureSlot> _slots;
         public List<CreatureSlot> Slots => _slots;
         
         private void Awake()
@@ -45,7 +45,7 @@ namespace ProjectGame
         }
 
         // Добавить предмет в инвентарь, возвращает true если всё влезло
-        public bool AddItem(Creature creature)
+        public virtual bool AddItem(Creature creature)
         {
             if (creature == null) return false;
         
@@ -78,6 +78,11 @@ namespace ProjectGame
         {
             if (index < 0 || index >= _slots.Count) return null;
             return _slots[index];
+        }
+
+        public void InvokeOnInventoryChanged()
+        {
+            OnInventoryChanged?.Invoke();
         }
     }
 }

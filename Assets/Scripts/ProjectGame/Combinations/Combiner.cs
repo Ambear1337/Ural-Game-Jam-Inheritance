@@ -6,7 +6,7 @@ using UnityEngine.PlayerLoop;
 namespace ProjectGame.Combinations
 {
     [Service(FindFromScene = true)]
-    public class Combiner: MonoBehaviour<RecipeService>
+    public class Combiner: MonoBehaviour<RecipeService, CreatureSpawner>
     {
         [SerializeField]
         private CombinerInventory _combinerInventory;
@@ -18,10 +18,12 @@ namespace ProjectGame.Combinations
         public Creature ResultCreature => _resultCreature;
         
         private RecipeService _recipeService;
+        private CreatureSpawner _spawner;
         
-        protected override void Init(RecipeService argument)
+        protected override void Init(RecipeService argument, CreatureSpawner spawner)
         {
             _recipeService = argument;
+            _spawner = spawner;
         }
 
         private void OnEnable()
@@ -41,6 +43,11 @@ namespace ProjectGame.Combinations
             _resultCreature = _combinerInventory.Slots[2].Creature;
         }
 
+        public void CreateCombinedCreature(Creature creature)
+        {
+            _combinerInventory.AddItem(creature);
+        }
+
         public void TryCombineCreatures()
         {
             if (_creature1 == null || _creature2 == null || _resultCreature != null) return;
@@ -52,6 +59,8 @@ namespace ProjectGame.Combinations
             int newCreatureAgression = ((_creature1.Aggression.CurrentValue + _creature2.Aggression.CurrentValue) / 2);
 
             
+            
+            _spawner.SpawnCombinedCreature(newCreatureType, newCreatureElement, newCreatureIntelligence, newCreatureAgression, newCreatureAgression);
         }
     }
 }

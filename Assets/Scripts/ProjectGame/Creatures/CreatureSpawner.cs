@@ -1,20 +1,32 @@
 using ProjectGame;
+using ProjectGame.Combinations;
 using Sisus.Init;
 using UnityEngine;
 
 [Service(FindFromScene = true)]
-public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player>
+public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner>
 {
     [SerializeField] private CreatureDescription[] _creatureDescriptions;
     [SerializeField] private CreatureElement[] _creatureElements;
     
     private CreaturesPool _creaturesPool;
     private Player _player;
+    private Combiner _combiner;
 
-    protected override void Init(CreaturesPool firstArgument, Player secondArgument)
+    protected override void Init(CreaturesPool firstArgument, Player secondArgument, Combiner combiner)
     {
         _creaturesPool = firstArgument;
         _player = secondArgument;
+        _combiner = combiner;
+    }
+
+    public void SpawnCombinedCreature(CreatureDescription description, CreatureElement element, int size, int intellegence, int aggression)
+    {
+        _creaturesPool.Pool.Get(out var creature);
+
+        creature.SetupCreature(description,element,size,intellegence,aggression);
+
+        _combiner.CreateCombinedCreature(creature);
     }
 
     public void SpawnRandomCreature()
