@@ -59,40 +59,49 @@ namespace ProjectGame.UI
 
         public void HandleDrop(CreatureSlotUI targetSlotUI, PointerEventData eventData)
         {
-            int fromIndex;
-            int toIndex;
-                
-            CreatureSlot fromSlot;
-            CreatureSlot toSlot;
+            if (_draggingSlotUI == null) return;
 
-            InventoryUI fromInventory = _draggingSlotUI.InventoryUI;
-            InventoryUI toInventory = targetSlotUI.InventoryUI;
-                
-            fromIndex = _draggingSlotUI.GetSlotIndex();
-            toIndex = targetSlotUI.GetSlotIndex();
+            InventoryUI fromUI = _draggingSlotUI.InventoryUI;
+            InventoryUI toUI   = targetSlotUI.InventoryUI;
 
-            fromSlot = fromInventory.Inventory.GetSlot(fromIndex);
-            toSlot = toInventory.Inventory.GetSlot(toIndex);
-            
-            if (fromSlot == null || toSlot == null) return;
+            int fromIndex = _draggingSlotUI.GetSlotIndex();
+            int toIndex   = targetSlotUI.GetSlotIndex();
 
-            var fromCreatureTemp = fromSlot.Creature;
-            var toCreatureTemp = toSlot.Creature;
-                
-            // Если дропаем на занятый слот
+            Inventory fromInventory = fromUI.Inventory;
+            Inventory toInventory   = toUI.Inventory;
+
+            CreatureSlot fromSlot = fromInventory.GetSlot(fromIndex);
+            CreatureSlot toSlot   = toInventory.GetSlot(toIndex);
+
+            if (fromSlot == null || toSlot == null || fromSlot.IsEmpty) 
+            {
+                ClearDraggingData();
+                return;
+            }
+
+            Creature creatureToMove = fromSlot.Creature;
+
+            // === Логика переноса ===
             if (!toSlot.IsEmpty)
             {
-                fromSlot.Set(toCreatureTemp);
-                toSlot.Set(fromCreatureTemp);
+                // Своп
+                Creature temp = toSlot.Creature;
+                toSlot.Set(creatureToMove);
+                fromSlot.Set(temp);
             }
             else
             {
+                // Простой перенос
                 fromSlot.Clear();
-                toSlot.Set(fromCreatureTemp);
+                toSlot.Set(creatureToMove);
             }
 
-            fromInventory.RefreshSlots();
-            toInventory.RefreshSlots();
+            // === Самое важное ===
+            fromInventory.RaiseInventoryChanged();   // или fromUI.RefreshSlots();
+            toInventory.RaiseInventoryChanged();     // или toUI.RefreshSlots();
+
+            // Если у тебя есть отдельный "список существ" в Combiner — обнови его здесь тоже
+
             ClearDraggingData();
         }
             

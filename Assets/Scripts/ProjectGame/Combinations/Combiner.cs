@@ -8,21 +8,18 @@ namespace ProjectGame.Combinations
     [Service(FindFromScene = true)]
     public class Combiner: MonoBehaviour<RecipeService, CreatureSpawner>
     {
-        [SerializeField]
-        private CombinerInventory _combinerInventory;
+        [SerializeField] private CombinerInventory _combinerInventory;
         
         private Creature _creature1;
         private Creature _creature2;
         private Creature _resultCreature;
-        
-        public Creature ResultCreature => _resultCreature;
-        
+
         private RecipeService _recipeService;
         private CreatureSpawner _spawner;
-        
-        protected override void Init(RecipeService argument, CreatureSpawner spawner)
+
+        protected override void Init(RecipeService recipeService, CreatureSpawner spawner)
         {
-            _recipeService = argument;
+            _recipeService = recipeService;
             _spawner = spawner;
         }
 
@@ -43,24 +40,63 @@ namespace ProjectGame.Combinations
             _resultCreature = _combinerInventory.Slots[2].Creature;
         }
 
-        public void CreateCombinedCreature(Creature creature)
-        {
-            _combinerInventory.AddItem(creature);
-        }
-
         public void TryCombineCreatures()
         {
-            if (_creature1 == null || _creature2 == null || _resultCreature != null) return;
-            
-            CreatureType newCreatureType = _recipeService.TryGetTypeResult(_creature1.Type, _creature2.Type);
-            CreatureElement newCreatureElement = _recipeService.TryGetElementResult(_creature1.Element, _creature2.Element);
-            int newCreatureSize = ((_creature1.Size.CurrentValue + _creature2.Size.CurrentValue) / 2);
-            int newCreatureIntelligence = ((_creature1.Intelligence.CurrentValue + _creature2.Intelligence.CurrentValue) / 2);
-            int newCreatureAgression = ((_creature1.Aggression.CurrentValue + _creature2.Aggression.CurrentValue) / 2);
+            UpdateCombinedCreatures();
 
-            
-            
-            _spawner.SpawnCombinedCreature(newCreatureType, newCreatureElement, newCreatureIntelligence, newCreatureAgression, newCreatureAgression);
+            // Проверка, что есть два ингредиента и слот результата пуст
+            if (_creature1 == null || _creature2 == null || _resultCreature != null)
+            {
+                Debug.Log("Combine failed: need two creatures in first two slots and empty result slot.");
+                return;
+            }
+
+            // Пытаемся получить результат рецепта
+            CreatureType newType = _recipeService.TryGetTypeResult(_creature1.Type, _creature2.Type);
+            CreatureElement newElement = _recipeService.TryGetElementResult(_creature1.Element, _creature2.Element);
+
+            /*if (newType == CreatureType.Plant || newElement == CreatureElement.Void) // предполагаю, что None = нет рецепта
+            {
+                Debug.Log("No recipe found for this combination.");
+                return;
+            }*/
+
+            Debug.Log($"Combining { _creature1.Type } + { _creature2.Type } → {newType}");
+
+            // Вычисляем средние характеристики (можно сделать более сложную формулу позже)
+            int newSize = (_creature1.Size.CurrentValue + _creature2.Size.CurrentValue) / 2;
+            int newIntelligence = (_creature1.Intelligence.CurrentValue + _creature2.Intelligence.CurrentValue) / 2;
+            int newAggression = (_creature1.Aggression.CurrentValue + _creature2.Aggression.CurrentValue) / 2;
+
+            // Спавним новое существо
+            _spawner.SpawnCombinedCreature(
+                _spawner.FindCreatureDescriptionByCreatureType(newType),
+                newElement,
+                newSize,
+                newIntelligence,
+                newAggression
+            );
+        }
+
+        // Вызывается из CreatureSpawner после спавна
+        public void PlaceCombinedCreature(Creature newCreature)
+        {
+            _combinerInventory.RemoveCreature(0);
+            _combinerInventory.RemoveCreature(1);
+
+            if (!_combinerInventory.PlaceInResultSlot(newCreature))
+            {
+                Debug.LogError("Failed to place result in slot 2!");
+            }
+        }
+
+        // Опционально: очистка всех слотов
+        public void ClearAllSlots()
+        {
+            for (int i = 0; i < _combinerInventory.Slots.Count; i++)
+                _combinerInventory.RemoveCreature(i);
+
+            _combinerInventory.RaiseInventoryChanged();
         }
     }
 }

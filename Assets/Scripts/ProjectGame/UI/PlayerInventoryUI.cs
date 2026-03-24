@@ -7,7 +7,7 @@ namespace ProjectGame.UI
         [SerializeField] private Vector2 _openedPosition;
         [SerializeField] private Vector2 _closedPosition;
 
-        private bool _isOpen = false;
+        private bool _isOpen;
 
         public override void ToggleInventory()
         {
@@ -16,16 +16,6 @@ namespace ProjectGame.UI
             _isOpen = !_isOpen;
             
             base.ToggleInventory();
-        }
-
-        private void MoveUIToOpenedPosition()
-        {
-            _rectTransform.anchoredPosition = _openedPosition;
-        }
-
-        private void MoveUIToClosedPosition()
-        {
-            _rectTransform.anchoredPosition = _closedPosition;
         }
     }
 }

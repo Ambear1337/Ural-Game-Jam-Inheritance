@@ -79,8 +79,8 @@ namespace ProjectGame
             if (index < 0 || index >= _slots.Count) return null;
             return _slots[index];
         }
-
-        public void InvokeOnInventoryChanged()
+        
+        protected internal void RaiseInventoryChanged()
         {
             OnInventoryChanged?.Invoke();
         }

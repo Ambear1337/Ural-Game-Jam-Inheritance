@@ -20,13 +20,13 @@ public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner>
         _combiner = combiner;
     }
 
-    public void SpawnCombinedCreature(CreatureDescription description, CreatureElement element, int size, int intellegence, int aggression)
+    public void SpawnCombinedCreature(CreatureDescription description, CreatureElement element, int size, int intelligence, int aggression)
     {
         _creaturesPool.Pool.Get(out var creature);
+        creature.SetupCreature(description, element, size, intelligence, aggression);
 
-        creature.SetupCreature(description,element,size,intellegence,aggression);
-
-        _combiner.CreateCombinedCreature(creature);
+        // Вместо CreateCombinedCreature теперь вызываем PlaceCombinedCreature
+        _combiner.PlaceCombinedCreature(creature);
     }
 
     public void SpawnRandomCreature()
@@ -36,6 +36,17 @@ public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner>
         creature.SetupCreature(GetRandomCreatureDescription(), GetRandomCreatureElement(), 1, 1, 1);
         
         _player.Inventory.AddItem(creature);
+    }
+
+    public CreatureDescription FindCreatureDescriptionByCreatureType(CreatureType type)
+    {
+        for (int i = 0; i < _creatureDescriptions.Length; i++)
+        {
+            if (_creatureDescriptions[i].CreatureType == type) return _creatureDescriptions[i];
+        }
+        
+        Debug.LogError("No creature description found!");
+        return null;
     }
     
     private CreatureDescription GetRandomCreatureDescription()
