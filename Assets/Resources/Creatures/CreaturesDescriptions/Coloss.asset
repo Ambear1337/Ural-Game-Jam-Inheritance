@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78cb38cf907c4a40a0d2cefdd62c07fe, type: 3}
   m_Name: Coloss
   m_EditorClassIdentifier: ProjectGame::ProjectGame.CreatureDescription
-  _creatureSprite: {fileID: 21300000, guid: 4bcf2b44e24440d40b62ade87a654693, type: 3}
+  _creatureSprite: {fileID: 21300000, guid: 6548ad4df1eea8940a3e08cde2dea430, type: 3}
   _creatureType: 6

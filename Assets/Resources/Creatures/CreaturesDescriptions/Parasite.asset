@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78cb38cf907c4a40a0d2cefdd62c07fe, type: 3}
   m_Name: Parasite
   m_EditorClassIdentifier: ProjectGame::ProjectGame.CreatureDescription
-  _creatureSprite: {fileID: 21300000, guid: 36611c5e5f80c06409ee8461dbbf6412, type: 3}
+  _creatureSprite: {fileID: 21300000, guid: 14893070102adc84ab8e9b905291217f, type: 3}
   _creatureType: 15
