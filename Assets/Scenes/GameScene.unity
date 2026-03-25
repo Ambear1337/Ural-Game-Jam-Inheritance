@@ -601,7 +601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -741,7 +741,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -119.6, y: -175.8}
+  m_AnchoredPosition: {x: -119.6001, y: -175.80005}
   m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &250077279
@@ -3592,7 +3592,43 @@ MonoBehaviour:
   - {fileID: 11400000, guid: defd2fd8c0aab5f4c847d34756dfeec3, type: 2}
   - {fileID: 11400000, guid: 94e1c543f5730684fb4eefb77b1c7557, type: 2}
   - {fileID: 11400000, guid: 29ea7af06e672e94bbbd2d7472cae485, type: 2}
-  _creatureElements: 0000000001000000020000000300000004000000050000000600000007000000
+  _creatureElementsDescriptions:
+  - {fileID: 11400000, guid: 4640df0cdb0431042b80ad67a37cf509, type: 2}
+  - {fileID: 11400000, guid: 1b9e192c47578eb45999ab555d7370a2, type: 2}
+  - {fileID: 11400000, guid: 20372a7671f38844a91d15fdfd3c4f27, type: 2}
+  - {fileID: 11400000, guid: 2c4c880c283673c4981f38ceabf7a558, type: 2}
+  - {fileID: 11400000, guid: 4c370ebedd93a4747be63469f61afaf2, type: 2}
+  - {fileID: 11400000, guid: 2051c539717d008448745cccc0587a96, type: 2}
+  - {fileID: 11400000, guid: f1d14f34b4f5615469e78d52ada7dd7d, type: 2}
+  - {fileID: 11400000, guid: f31595652d08b1d499fb554aeaeac336, type: 2}
+  - {fileID: 11400000, guid: 3e1d7151ddfbb8849b94571cbccb7915, type: 2}
+  - {fileID: 11400000, guid: 36b7254bbb1979648af8d9064a83ecf3, type: 2}
+  - {fileID: 11400000, guid: 1650247adfac9f545bcecf9214345f88, type: 2}
+  - {fileID: 11400000, guid: 2b502df3f6bb58c4c9107bebd634717f, type: 2}
+  - {fileID: 11400000, guid: cb0b192cd868c1a41bc0e1ea54efb69d, type: 2}
+  - {fileID: 11400000, guid: 61a3987ec41e1964b83f50cf78e58c5e, type: 2}
+  - {fileID: 11400000, guid: 94e8505bc70524d4583644ecd218144d, type: 2}
+  - {fileID: 11400000, guid: 51b661f61a241f14ab5a75c846819e42, type: 2}
+  - {fileID: 11400000, guid: fd617c15f059d884e98ee3cd95113977, type: 2}
+  - {fileID: 11400000, guid: f19833e75e89db9448405fe36550d522, type: 2}
+  - {fileID: 11400000, guid: 3e56539493ce82f46aa61012746be52f, type: 2}
+  - {fileID: 11400000, guid: 1555ad7ea60120a4182a3169ad649369, type: 2}
+  - {fileID: 11400000, guid: e28b2815a6e29d34c9ac00624ecdc44b, type: 2}
+  - {fileID: 11400000, guid: 079f355c9fca2c6438280218e1a21232, type: 2}
+  - {fileID: 11400000, guid: a859b7b6c5875754d84c4cf3fd6445ce, type: 2}
+  - {fileID: 11400000, guid: 02a4fa3ebf9ff3342b1611ca97166b41, type: 2}
+  - {fileID: 11400000, guid: 9282053d67c8a644b8f0f07dfd901ded, type: 2}
+  - {fileID: 11400000, guid: b635a1b20757c794b9e9f008a88ed1de, type: 2}
+  - {fileID: 11400000, guid: d594b97bb96b3474797cfd2aa9e821d6, type: 2}
+  - {fileID: 11400000, guid: 23c3a5925af73da4e9820fddef62304a, type: 2}
+  - {fileID: 11400000, guid: 4c45ca4f713cd7840a7735389f8c0c7e, type: 2}
+  - {fileID: 11400000, guid: 9b55543a580f7434d90a9c85a1479dae, type: 2}
+  - {fileID: 11400000, guid: a9bd52a0abf0d7041931ecab85985a28, type: 2}
+  - {fileID: 11400000, guid: 38b28d9d678c98a4e91e4a36fe2db7aa, type: 2}
+  - {fileID: 11400000, guid: 26fbd3ec84844674cbf9ab407f8453be, type: 2}
+  - {fileID: 11400000, guid: 251d64c18356d2545b7de382ae77d010, type: 2}
+  - {fileID: 11400000, guid: 04cfc31924124d8479360d992952e231, type: 2}
+  - {fileID: 11400000, guid: 3715cadb26567664dace5a5f781efa75, type: 2}
 --- !u!4 &1491874319
 Transform:
   m_ObjectHideFlags: 0
@@ -4115,8 +4151,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 244.772, y: -127.229}
-  m_SizeDelta: {x: 104.708, y: 94.55}
+  m_AnchoredPosition: {x: 245.313, y: -127.544}
+  m_SizeDelta: {x: 105.601, y: 94.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2089416575
 MonoBehaviour:
@@ -4195,8 +4231,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: c4541a7b63624d24b8de2c0f6bae0f92, type: 2}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

@@ -1,5 +1,6 @@
 using ProjectGame;
 using ProjectGame.Combinations;
+using ProjectGame.Creatures;
 using Sisus.Init;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ using UnityEngine;
 public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner>
 {
     [SerializeField] private CreatureDescription[] _creatureDescriptions;
-    [SerializeField] private CreatureElement[] _creatureElements;
+    [SerializeField] private CreatureElementDescription[] _creatureElementsDescriptions;
     
     private CreaturesPool _creaturesPool;
     private Player _player;
@@ -20,7 +21,7 @@ public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner>
         _combiner = combiner;
     }
 
-    public void SpawnCombinedCreature(CreatureDescription description, CreatureElement element, int size, int intelligence, int aggression)
+    public void SpawnCombinedCreature(CreatureDescription description, CreatureElementDescription element , int size, int intelligence, int aggression)
     {
         _creaturesPool.Pool.Get(out var creature);
         creature.SetupCreature(description, element, size, intelligence, aggression);
@@ -33,7 +34,7 @@ public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner>
     {
         _creaturesPool.Pool.Get(out var creature);
         
-        creature.SetupCreature(GetRandomCreatureDescription(), GetRandomCreatureElement(), 1, 1, 1);
+        creature.SetupCreature(GetRandomCreatureDescription(), GetRandomCreatureElementDescription(), 1, 1, 1);
         
         _player.Inventory.AddItem(creature);
     }
@@ -49,6 +50,17 @@ public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner>
         return null;
     }
     
+    public CreatureElementDescription FindCreatureDescriptionByCreatureElement(CreatureElement element)
+    {
+        for (int i = 0; i < _creatureDescriptions.Length; i++)
+        {
+            if (_creatureElementsDescriptions[i].CreatureElement == element) return _creatureElementsDescriptions[i];
+        }
+        
+        Debug.LogError("No creature description found!");
+        return null;
+    }
+    
     private CreatureDescription GetRandomCreatureDescription()
     {
         int randomIndex = Random.Range(0, _creatureDescriptions.Length);
@@ -58,10 +70,10 @@ public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner>
         return _creatureDescriptions[randomIndex];
     }
 
-    private CreatureElement GetRandomCreatureElement()
+    private CreatureElementDescription GetRandomCreatureElementDescription()
     {
-        int randomIndex = Random.Range(0, _creatureElements.Length);
+        int randomIndex = Random.Range(0, _creatureElementsDescriptions.Length);
         
-        return _creatureElements[randomIndex];
+        return _creatureElementsDescriptions[randomIndex];
     }
 }

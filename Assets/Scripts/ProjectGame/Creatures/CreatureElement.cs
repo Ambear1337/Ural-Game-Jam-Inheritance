@@ -37,5 +37,6 @@ public enum CreatureElement
     Oblivion,
     Antidote,
     Ghost,
-    Plague
+    Plague,
+    None
 }

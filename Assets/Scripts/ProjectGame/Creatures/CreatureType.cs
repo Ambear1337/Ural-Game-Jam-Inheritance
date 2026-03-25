@@ -19,4 +19,5 @@ public enum CreatureType
     Swarm,
     Parasite,
     Shell,
+    None
 }

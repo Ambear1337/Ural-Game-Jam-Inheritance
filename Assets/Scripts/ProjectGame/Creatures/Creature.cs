@@ -1,4 +1,5 @@
 using ProjectGame;
+using ProjectGame.Creatures;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -21,15 +22,18 @@ public class Creature: MonoBehaviour
     public ValueComponent Aggression => _aggression;
     private CreatureDescription _creatureDescription;
     public CreatureDescription CreatureDescription => _creatureDescription;
+    private CreatureElementDescription _elementDescription;
+    public CreatureElementDescription ElementDescription => _elementDescription;
 
-    public void SetupCreature(CreatureDescription creatureDescription, CreatureElement element, int s, int i, int a)
+    public void SetupCreature(CreatureDescription creatureDescription, CreatureElementDescription elementDescription, int s, int i, int a)
     {
         _creatureDescription = creatureDescription;
+        _elementDescription = elementDescription;
 
         if (!_creatureDescription) return;
 
         _type = _creatureDescription.CreatureType;
-        _element = element;
+        _element = _elementDescription.CreatureElement;
         _size.SetMin(0);
         _size.SetMax(10);
         _size.Set(s);

@@ -55,11 +55,11 @@ namespace ProjectGame.Combinations
             CreatureType newType = _recipeService.TryGetTypeResult(_creature1.Type, _creature2.Type);
             CreatureElement newElement = _recipeService.TryGetElementResult(_creature1.Element, _creature2.Element);
 
-            /*if (newType == CreatureType.Plant || newElement == CreatureElement.Void) // предполагаю, что None = нет рецепта
+            if (newType == CreatureType.None || newElement == CreatureElement.None)
             {
-                Debug.Log("No recipe found for this combination.");
+                Debug.LogError("Something is NONE");
                 return;
-            }*/
+            }
 
             Debug.Log($"Combining { _creature1.Type } + { _creature2.Type } → {newType}");
 
@@ -71,7 +71,7 @@ namespace ProjectGame.Combinations
             // Спавним новое существо
             _spawner.SpawnCombinedCreature(
                 _spawner.FindCreatureDescriptionByCreatureType(newType),
-                newElement,
+                _spawner.FindCreatureDescriptionByCreatureElement(newElement),
                 newSize,
                 newIntelligence,
                 newAggression

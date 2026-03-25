@@ -8,7 +8,8 @@ namespace ProjectGame.UI
     public class CreatureSlotUI : MonoBehaviour<DragAndDropManager>, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler
     {
         [SerializeField] private Image backgroundImage;  // Фон слота (например, рамка)
-        [SerializeField] private Image itemImage;        // Иконка предмета
+        [SerializeField] private Image itemImage;
+        [SerializeField] private Image elementImage;// Иконка предмета
         
         private bool _isSelected = false;
         private CreatureSlot _slotData;
@@ -53,10 +54,12 @@ namespace ProjectGame.UI
             if (_slotData == null || _slotData.IsEmpty)
             {
                 itemImage.enabled = false;
+                elementImage.enabled = false;
             }
             else
             {
                 itemImage.sprite = _slotData.Creature.CreatureDescription.CreatureSprite;
+                elementImage.sprite = _slotData.Creature.ElementDescription.CreatureElementSprite;
                 itemImage.enabled = true;
             }
         }

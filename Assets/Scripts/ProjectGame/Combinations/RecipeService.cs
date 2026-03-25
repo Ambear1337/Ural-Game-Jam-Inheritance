@@ -13,7 +13,7 @@ namespace ProjectGame.Combinations
 
         public CreatureType TryGetTypeResult(CreatureType type1, CreatureType type2)
         {
-            CreatureType result = CreatureType.Parasite;
+            CreatureType result = CreatureType.None;
             
             for (int i = 0; i < _typeCombinations.Count; i++)
             {
@@ -29,7 +29,7 @@ namespace ProjectGame.Combinations
 
         public CreatureElement TryGetElementResult(CreatureElement element1, CreatureElement element2)
         {
-            CreatureElement result = CreatureElement.Void;
+            CreatureElement result = CreatureElement.None;
             
             for (int i = 0; i < _typeCombinations.Count; i++)
             {
