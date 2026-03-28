@@ -33,6 +33,11 @@ public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner>
         _combiner.PlaceCombinedCreature(creature);
     }
 
+    public void ReleaseCreature(Creature creature)
+    {
+        _creaturesPool.Pool.Release(creature);
+    }
+
     public void ReleaseCreaturesAfterCombine(Creature creature1, Creature creature2)
     {
         _creaturesPool.Pool.Release(creature1);
@@ -64,18 +69,18 @@ public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner>
             if (_creatureDescriptions[i].CreatureType == type) return _creatureDescriptions[i];
         }
         
-        Debug.LogError("No creature description found!");
+        Debug.LogError("No creature type description found!");
         return null;
     }
     
-    public CreatureElementDescription FindCreatureDescriptionByCreatureElement(CreatureElement element)
+    public CreatureElementDescription FindCreatureElementDescriptionByCreatureElement(CreatureElement element)
     {
-        for (int i = 0; i < _creatureDescriptions.Length; i++)
+        for (int i = 0; i < _creatureElementsDescriptions.Length; i++)
         {
-            if (_creatureElementsDescriptions[i].CreatureElement == element) return _creatureElementsDescriptions[i];
+            if (_creatureElementsDescriptions[i].CreatureElement == element) 
+                return _creatureElementsDescriptions[i];
         }
         
-        Debug.LogError("No creature description found!");
         return null;
     }
     

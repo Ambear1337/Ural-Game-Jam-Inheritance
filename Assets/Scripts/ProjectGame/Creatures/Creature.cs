@@ -30,7 +30,7 @@ public class Creature: MonoBehaviour
         _creatureDescription = creatureDescription;
         _elementDescription = elementDescription;
 
-        if (!_creatureDescription) return;
+        if (!_creatureDescription || !_elementDescription) return;
 
         _type = _creatureDescription.CreatureType;
         _element = _elementDescription.CreatureElement;

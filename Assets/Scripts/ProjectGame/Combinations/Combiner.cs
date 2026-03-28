@@ -64,6 +64,7 @@ namespace ProjectGame.Combinations
             }
 
             Debug.Log($"Combining { _creature1.Type } + { _creature2.Type } → {newType}");
+            Debug.Log($"Combining { _creature1.Element } + { _creature2.Element } → {newElement}");
 
             // Вычисляем средние характеристики (можно сделать более сложную формулу позже)
             int newSize = (_creature1.Size.CurrentValue + _creature2.Size.CurrentValue) / 2;
@@ -75,7 +76,7 @@ namespace ProjectGame.Combinations
             // Спавним новое существо
             _spawner.SpawnCombinedCreature(
                 _spawner.FindCreatureDescriptionByCreatureType(newType),
-                _spawner.FindCreatureDescriptionByCreatureElement(newElement),
+                _spawner.FindCreatureElementDescriptionByCreatureElement(newElement),
                 newSize,
                 newIntelligence,
                 newAggression
