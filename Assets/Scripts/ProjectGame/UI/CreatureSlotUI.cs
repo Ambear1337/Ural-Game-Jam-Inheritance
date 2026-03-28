@@ -61,6 +61,7 @@ namespace ProjectGame.UI
                 itemImage.sprite = _slotData.Creature.CreatureDescription.CreatureSprite;
                 elementImage.sprite = _slotData.Creature.ElementDescription.CreatureElementSprite;
                 itemImage.enabled = true;
+                elementImage.enabled = true;
             }
         }
 

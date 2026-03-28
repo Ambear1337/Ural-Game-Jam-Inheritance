@@ -31,13 +31,12 @@ namespace ProjectGame.Combinations
         {
             CreatureElement result = CreatureElement.None;
             
-            for (int i = 0; i < _typeCombinations.Count; i++)
+            for (int i = 0; i < _elementCombinations.Count; i++)
             {
-                if ((_elementCombinations[i].Element1 != element1 || _elementCombinations[i].Element2 != element2) &&
-                    (_elementCombinations[i].Element1 != element2 || _elementCombinations[i].Element2 != element1)) continue;
-                
-                result = _elementCombinations[i].Result;
-                return result;
+                if (_elementCombinations[i].Element1 == element1 && _elementCombinations[i].Element2 == element2 || _elementCombinations[i].Element2 == element1 && _elementCombinations[i].Element1 == element2)
+                {
+                    result = _elementCombinations[i].Result;
+                }
             }
 
             return result;

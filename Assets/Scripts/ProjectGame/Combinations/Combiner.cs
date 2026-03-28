@@ -54,6 +54,8 @@ namespace ProjectGame.Combinations
             // Пытаемся получить результат рецепта
             CreatureType newType = _recipeService.TryGetTypeResult(_creature1.Type, _creature2.Type);
             CreatureElement newElement = _recipeService.TryGetElementResult(_creature1.Element, _creature2.Element);
+            
+            Debug.Log("New type is " + newType + ", new element is " + newElement);
 
             if (newType == CreatureType.None || newElement == CreatureElement.None)
             {
@@ -68,6 +70,8 @@ namespace ProjectGame.Combinations
             int newIntelligence = (_creature1.Intelligence.CurrentValue + _creature2.Intelligence.CurrentValue) / 2;
             int newAggression = (_creature1.Aggression.CurrentValue + _creature2.Aggression.CurrentValue) / 2;
 
+            _spawner.ReleaseCreaturesAfterCombine(_creature1, _creature2);
+            
             // Спавним новое существо
             _spawner.SpawnCombinedCreature(
                 _spawner.FindCreatureDescriptionByCreatureType(newType),

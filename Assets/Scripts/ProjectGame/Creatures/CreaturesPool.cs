@@ -22,7 +22,7 @@ namespace ProjectGame
                 actionOnDestroy: OnDestroyItem,
                 collectionCheck: true,   // helps catch double-release mistakes
                 defaultCapacity: 4,
-                maxSize: 8
+                maxSize: 9
             );
         }
 
