@@ -20595,6 +20595,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SellSlotUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4706462697134332406, guid: f38e85fa22314894f83df52431794a5c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4706462697134332406, guid: f38e85fa22314894f83df52431794a5c, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
