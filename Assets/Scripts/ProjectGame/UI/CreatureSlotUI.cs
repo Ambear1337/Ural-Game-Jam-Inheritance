@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 namespace ProjectGame.UI
 {
-    public class CreatureSlotUI : MonoBehaviour<DragAndDropManager>, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler
+    public class CreatureSlotUI : MonoBehaviour<DragAndDropManager, Shop>, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler
     {
         [SerializeField] private Image backgroundImage;  // Фон слота (например, рамка)
         [SerializeField] private Image itemImage;
         [SerializeField] private Image elementImage;// Иконка предмета
         
         private bool _isSelected = false;
-        private CreatureSlot _slotData;
+        protected CreatureSlot _slotData;
         private int _slotIndex;
         private InventoryUI _fromInventoryUI;
         public InventoryUI FromInventoryUI => _fromInventoryUI;
@@ -24,10 +24,12 @@ namespace ProjectGame.UI
         private RectTransform _rectTransform;
         
         private DragAndDropManager _dragAndDropManager;
+        protected Shop _shop;
         
-        protected override void Init(DragAndDropManager argument)
+        protected override void Init(DragAndDropManager argument, Shop shop)
         {
             _dragAndDropManager = argument;
+            _shop = shop;
         }
         
         // ReSharper disable Unity.PerformanceAnalysis
@@ -104,7 +106,7 @@ namespace ProjectGame.UI
         }
 
         // Обработка дропа предмета на этот слот
-        public void OnDrop(PointerEventData eventData)
+        public virtual void OnDrop(PointerEventData eventData)
         {
             _dragAndDropManager.HandleDrop(this, eventData);
         }

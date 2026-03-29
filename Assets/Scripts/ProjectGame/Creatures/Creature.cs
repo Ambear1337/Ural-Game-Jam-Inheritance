@@ -25,7 +25,10 @@ public class Creature: MonoBehaviour
     private CreatureElementDescription _elementDescription;
     public CreatureElementDescription ElementDescription => _elementDescription;
 
-    public void SetupCreature(CreatureDescription creatureDescription, CreatureElementDescription elementDescription, int s, int i, int a)
+    private int _cost = 10;
+    public int Cost => _cost;
+
+    public void SetupCreature(CreatureDescription creatureDescription, CreatureElementDescription elementDescription, int s, int i, int a, int cost)
     {
         _creatureDescription = creatureDescription;
         _elementDescription = elementDescription;
@@ -43,5 +46,7 @@ public class Creature: MonoBehaviour
         _aggression.SetMin(0);
         _aggression.SetMax(10);
         _aggression.Set(a);
+
+        _cost = cost;
     }
 }

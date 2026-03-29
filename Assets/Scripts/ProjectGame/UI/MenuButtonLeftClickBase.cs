@@ -1,12 +1,19 @@
+using Sisus.Init;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace ProjectGame.Buttons
 {
-    public abstract class MenuButtonLeftClickBase : MonoBehaviour, ISubmitHandler, IPointerClickHandler
+    public abstract class MenuButtonLeftClickBase : MonoBehaviour<SoundEffectsSource>, ISubmitHandler, IPointerClickHandler
     {
+        [SerializeField]
+        protected AudioClip _soundEffect;
+
+        [SerializeField] protected AudioSource _audioSource;
+        
         public void OnSubmit(BaseEventData eventData)
         {
+            PlaySound();
             FireEvent();
         }
 
@@ -20,6 +27,11 @@ namespace ProjectGame.Buttons
             
             if(eventData is { button: PointerEventData.InputButton.Left })
                 FireEvent();
+        }
+        
+        public void PlaySound()
+        {
+            if (_audioSource && _soundEffect) _audioSource.PlayOneShot(_soundEffect);
         }
 
         protected abstract void FireEvent();

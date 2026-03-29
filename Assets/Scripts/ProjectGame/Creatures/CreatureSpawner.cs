@@ -5,7 +5,7 @@ using Sisus.Init;
 using UnityEngine;
 
 [Service(FindFromScene = true)]
-public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner>
+public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner, Shop>
 {
     [SerializeField] private CreatureDescription[] _creatureDescriptions;
     [SerializeField] private CreatureElementDescription[] _creatureElementsDescriptions;
@@ -16,18 +16,20 @@ public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner>
     private CreaturesPool _creaturesPool;
     private Player _player;
     private Combiner _combiner;
+    private Shop _shop;
 
-    protected override void Init(CreaturesPool firstArgument, Player secondArgument, Combiner combiner)
+    protected override void Init(CreaturesPool firstArgument, Player secondArgument, Combiner combiner, Shop shop)
     {
         _creaturesPool = firstArgument;
         _player = secondArgument;
         _combiner = combiner;
+        _shop = shop;
     }
 
     public void SpawnCombinedCreature(CreatureDescription description, CreatureElementDescription element , int size, int intelligence, int aggression)
     {
         _creaturesPool.Pool.Get(out var creature);
-        creature.SetupCreature(description, element, size, intelligence, aggression);
+        creature.SetupCreature(description, element, size, intelligence, aggression, _shop.HybridCreatureCost);
 
         // Вместо CreateCombinedCreature теперь вызываем PlaceCombinedCreature
         _combiner.PlaceCombinedCreature(creature);
@@ -48,7 +50,7 @@ public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner>
     {
         _creaturesPool.Pool.Get(out var creature);
         
-        creature.SetupCreature(description, element, size, intelligence, aggression);
+        creature.SetupCreature(description, element, size, intelligence, aggression, 10);
         
         _player.Inventory.AddItem(creature);
     }
@@ -57,7 +59,7 @@ public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner>
     {
         _creaturesPool.Pool.Get(out var creature);
         
-        creature.SetupCreature(GetRandomBaseCreatureDescription(), GetRandomBaseCreatureElementDescription(), 1, 1, 1);
+        creature.SetupCreature(GetRandomBaseCreatureDescription(), GetRandomBaseCreatureElementDescription(), 1, 1, 1, _shop.BaseCreatureCost);
         
         _player.Inventory.AddItem(creature);
     }
