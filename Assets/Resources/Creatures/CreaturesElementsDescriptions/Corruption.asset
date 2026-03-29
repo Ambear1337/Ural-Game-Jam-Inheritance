@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239924049ecf3a34a9ae2e9308a499bc, type: 3}
   m_Name: Corruption
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Creatures.CreatureElementDescription
-  _creatureElementSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  _creatureElementSprite: {fileID: 21300000, guid: e8df0fed90b986742bc799478d3ec49a, type: 3}
   _creatureElement: 31
