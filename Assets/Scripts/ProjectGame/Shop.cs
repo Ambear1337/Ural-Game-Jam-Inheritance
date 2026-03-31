@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ProjectGame
 {
-    [Service(Instantiate = true)]
+    [Service(FindFromScene = true)]
     public class Shop: MonoBehaviour<Player, SellService>
     {
         private Player _player;

@@ -9,8 +9,20 @@ namespace ProjectGame.UI
     {
         [SerializeField] private Combiner _combiner;
         
+        private SoundEffectsSource _soundEffectsSource;
+        
+        protected override void Init(SoundEffectsSource argument)
+        {
+            _soundEffectsSource = argument;
+            _audioSource = _soundEffectsSource.AudioSource;
+        }
+        
         protected override void FireEvent()
         {
+            if (_audioSource && _soundEffect)
+            {
+                _audioSource.PlayOneShot(_soundEffect);
+            }
             _combiner.TryCombineCreatures();
         }
     }

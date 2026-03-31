@@ -10,7 +10,7 @@ namespace ProjectGame.Buttons
         protected AudioClip _soundEffect;
 
         [SerializeField] protected AudioSource _audioSource;
-        
+
         public void OnSubmit(BaseEventData eventData)
         {
             PlaySound();

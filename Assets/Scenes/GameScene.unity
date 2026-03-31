@@ -253,7 +253,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: Resume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7196dfcdd80d4d4b9ddcc735cb71da8, type: 2}
   m_sharedMaterial: {fileID: 2608485603327408257, guid: b7196dfcdd80d4d4b9ddcc735cb71da8, type: 2}
@@ -1455,7 +1455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1380ea00b84a1c8e8270ae9f267379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ProjectGame::ProjectGame.UI.ElementRecipesButton
-  _soundEffect: {fileID: 0}
+  _soundEffect: {fileID: 8300000, guid: 726fa8a667165934883cdd1abf91967c, type: 3}
   _audioSource: {fileID: 0}
   _recipesBookUI: {fileID: 1544152771}
 --- !u!1 &84062656
@@ -3134,7 +3134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &165440953
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3537,7 +3537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd985b770ea1a24c908bffd895072bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ProjectGame::ProjectGame.UI.InventoryButton
-  _soundEffect: {fileID: 0}
+  _soundEffect: {fileID: 8300000, guid: 726fa8a667165934883cdd1abf91967c, type: 3}
   _audioSource: {fileID: 0}
   _inventoryUI: {fileID: 549022626}
 --- !u!1 &179706839
@@ -3726,6 +3726,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.Combiner
   _combinerInventory: {fileID: 179935872}
+  _combineAudioEffectClips:
+  - {fileID: 8300000, guid: 1f687b3abd2773b2ca250851fa7be6b2, type: 3}
+  - {fileID: 8300000, guid: d3c31f432d130c4a49202c3bcc80f4de, type: 3}
+  - {fileID: 8300000, guid: c81d2e053e43905f4bc5e765f5732e3c, type: 3}
 --- !u!114 &179935872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5031,7 +5035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &250077278
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6140,6 +6144,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287601170}
   m_CullTransparentMesh: 1
+--- !u!1 &297598047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297598049}
+  - component: {fileID: 297598048}
+  m_Layer: 0
+  m_Name: Shop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &297598048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297598047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c664064bfc8945b68ab7216effa5191c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectGame::ProjectGame.Shop
+--- !u!4 &297598049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297598047}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &300152018
 GameObject:
   m_ObjectHideFlags: 0
@@ -19757,7 +19805,7 @@ GameObject:
   - component: {fileID: 1007886370}
   - component: {fileID: 1007886369}
   m_Layer: 5
-  m_Name: SettingsButton
+  m_Name: ResumeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19795,8 +19843,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adce689d4909eb54d8ba25acf9a016e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingsButton
-  _soundEffect: {fileID: 0}
+  _soundEffect: {fileID: 8300000, guid: 726fa8a667165934883cdd1abf91967c, type: 3}
   _audioSource: {fileID: 0}
+  _menuPanel: {fileID: 1786218686}
 --- !u!114 &1007886370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30683,7 +30732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd102d253abf4b846ac3a526e48df54c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuitGameButton
-  _soundEffect: {fileID: 0}
+  _soundEffect: {fileID: 8300000, guid: 726fa8a667165934883cdd1abf91967c, type: 3}
   _audioSource: {fileID: 0}
 --- !u!114 &1474131980
 MonoBehaviour:
@@ -34892,7 +34941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1668741541
 RectTransform:
   m_ObjectHideFlags: 0
@@ -38098,7 +38147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 301e720fdb544b9ca7c05f18705b999c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ProjectGame::ProjectGame.UI.TypesRecipesButton
-  _soundEffect: {fileID: 0}
+  _soundEffect: {fileID: 8300000, guid: 726fa8a667165934883cdd1abf91967c, type: 3}
   _audioSource: {fileID: 0}
   _recipesBookUI: {fileID: 1544152771}
 --- !u!1 &1852831882
@@ -42523,7 +42572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aede2eb0f6eba904c83393975ce26508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ProjectGame::ProjectGame.UI.CombineButton
-  _soundEffect: {fileID: 0}
+  _soundEffect: {fileID: 8300000, guid: 726fa8a667165934883cdd1abf91967c, type: 3}
   _audioSource: {fileID: 0}
   _combiner: {fileID: 179935869}
 --- !u!114 &2089416576
@@ -43397,3 +43446,4 @@ SceneRoots:
   - {fileID: 1434322337}
   - {fileID: 1187128308}
   - {fileID: 1333007736}
+  - {fileID: 297598049}

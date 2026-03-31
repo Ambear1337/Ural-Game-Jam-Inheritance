@@ -1,3 +1,4 @@
+using ProjectGame;
 using ProjectGame.Buttons;
 using UnityEngine;
 
@@ -9,5 +10,10 @@ public class GearButton: MenuButtonLeftClickBase
     protected override void FireEvent()
     {
         _menuPanel.SetActive(true);
+    }
+
+    protected override void Init(SoundEffectsSource argument)
+    {
+        //throw new System.NotImplementedException();
     }
 }

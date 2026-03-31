@@ -2,13 +2,15 @@
 using Sisus.Init;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using Random = UnityEngine.Random;
 
 namespace ProjectGame.Combinations
 {
     [Service(FindFromScene = true)]
-    public class Combiner: MonoBehaviour<RecipeService, CreatureSpawner>
+    public class Combiner: MonoBehaviour<RecipeService, CreatureSpawner, SoundEffectsSource>
     {
         [SerializeField] private CombinerInventory _combinerInventory;
+        [SerializeField] private AudioClip[] _combineAudioEffectClips;
         
         private Creature _creature1;
         private Creature _creature2;
@@ -16,11 +18,13 @@ namespace ProjectGame.Combinations
 
         private RecipeService _recipeService;
         private CreatureSpawner _spawner;
+        private SoundEffectsSource _soundEffectsSource;
 
-        protected override void Init(RecipeService recipeService, CreatureSpawner spawner)
+        protected override void Init(RecipeService recipeService, CreatureSpawner spawner, SoundEffectsSource soundEffectsSource)
         {
             _recipeService = recipeService;
             _spawner = spawner;
+            _soundEffectsSource = soundEffectsSource;
         }
 
         private void OnEnable()
@@ -81,6 +85,16 @@ namespace ProjectGame.Combinations
                 newIntelligence,
                 newAggression
             );
+            
+            if (_soundEffectsSource.AudioSource)
+            {
+                int randomIndex = Random.Range(0, _combineAudioEffectClips.Length);
+
+                if (_combineAudioEffectClips[randomIndex] != null)
+                {
+                    _soundEffectsSource.AudioSource.PlayOneShot(_combineAudioEffectClips[randomIndex]);
+                }
+            }
         }
 
         // Вызывается из CreatureSpawner после спавна

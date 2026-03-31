@@ -1,10 +1,11 @@
 using ProjectGame;
 using ProjectGame.Buttons;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class StartGameButton: MenuButtonLeftClickBase
+public class ResumeButton: MenuButtonLeftClickBase
 {
+    [SerializeField] private GameObject _menuPanel;
+    
     private SoundEffectsSource _soundEffectsSource;
         
     protected override void Init(SoundEffectsSource argument)
@@ -19,6 +20,7 @@ public class StartGameButton: MenuButtonLeftClickBase
         {
             _audioSource.PlayOneShot(_soundEffect);
         }
-        SceneManager.LoadSceneAsync("GameScene");
+        
+        _menuPanel.SetActive(false);
     }
 }
