@@ -1,21 +1,22 @@
 ﻿using ProjectGame.UI;
+using ProjectGame.UI.InventorySystem;
 using UnityEngine;
 
 namespace ProjectGame
 {
     public class CombinerInventory: Inventory
     {
-        public bool PlaceInResultSlot(Creature creature)
+        public bool PlaceInResultSlot(Item item)
         {
-            if (creature == null) return false;
+            if (item == null) return false;
     
             // Предполагаем, что результат всегда в слоте 2
             if (_slots.Count < 3) return false;
 
-            CreatureSlot resultSlot = _slots[2];
+            ItemSlot resultSlot = _slots[2];
             if (!resultSlot.IsEmpty) return false;
 
-            resultSlot.Set(creature);
+            resultSlot.Set(item);
             RaiseInventoryChanged();        // или OnInventoryChanged?.Invoke();
             return true;
         }

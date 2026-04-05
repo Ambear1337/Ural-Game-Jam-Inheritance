@@ -1,3 +1,4 @@
+using System;
 using Sisus.Init;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -5,11 +6,9 @@ using UnityEngine.UI;
 
 namespace ProjectGame.UI.InventorySystem
 {
-    public class ItemSlotUI: MonoBehaviour<DragAndDropManager, Shop>, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler
+    public class ItemSlotUI: MonoBehaviour<DragAndDropManager, Shop>, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
     {
-        [SerializeField] private Image backgroundImage;  // Фон слота (например, рамка)
-        [SerializeField] private Image itemImage;
-        [SerializeField] private Image elementImage;// Иконка предмета
+        [SerializeField] protected Image itemImage;
         
         private bool _isSelected = false;
         protected ItemSlot _slotData;
@@ -49,32 +48,18 @@ namespace ProjectGame.UI.InventorySystem
             _inventoryUI = inventoryUI;
         }
 
-        public void RefreshSlot(CreatureSlot slot)
+        public virtual void RefreshSlot(ItemSlot slot)
         {
             _slotData = slot;
 
             if (_slotData == null || _slotData.IsEmpty)
             {
                 itemImage.enabled = false;
-                elementImage.enabled = false;
             }
             else
             {
-                itemImage.sprite = _slotData.Creature.CreatureDescription.CreatureSprite;
-                elementImage.sprite = _slotData.Creature.ElementDescription.CreatureElementSprite;
+                itemImage.sprite = _slotData.Item.ItemSprite;
                 itemImage.enabled = true;
-                elementImage.enabled = true;
-            }
-        }
-
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            if (eventData.button == PointerEventData.InputButton.Left)
-            {
-                if (_inventoryUI.SelectedSlot != null) _inventoryUI.SelectedSlot._isSelected = false;
-
-                _inventoryUI.SetSelectedSlot(this);
-                _isSelected = true;
             }
         }
 
@@ -114,6 +99,11 @@ namespace ProjectGame.UI.InventorySystem
         public int GetSlotIndex()
         {
             return _slotIndex;
+        }
+
+        protected virtual void OnDestroy()
+        {
+            
         }
     }
 }

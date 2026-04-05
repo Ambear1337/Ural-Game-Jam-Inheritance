@@ -8,7 +8,7 @@ namespace ProjectGame.UI
         {
             base.OnDrop(eventData);
 
-            _shop.SellCreature(_slotData.Creature);
+            //_shop.SellCreature();
         }
     }
 }

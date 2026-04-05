@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78cb38cf907c4a40a0d2cefdd62c07fe, type: 3}
   m_Name: Beast
   m_EditorClassIdentifier: ProjectGame::ProjectGame.CreatureDescription
-  _creatureSprite: {fileID: 21300000, guid: 86690392d87466447b47859ea26f937b, type: 3}
+  _creatureSprite: {fileID: 21300000, guid: 8d5606ef8b89d304d93917140c7d64a3, type: 3}
   _creatureType: 13

@@ -1,3 +1,4 @@
+using ProjectGame.UI.InventorySystem;
 using Sisus.Init;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,8 +13,8 @@ namespace ProjectGame.UI
         [SerializeField]
         private Image _dragIcon;
             
-        private CreatureSlotUI _draggingSlotUI;
-        private CreatureSlot _draggingSlotData;
+        private ItemSlotUI _draggingSlotUI;
+        private ItemSlot _draggingSlotData;
             
         private RectTransform _dragIconRect;
 
@@ -24,12 +25,12 @@ namespace ProjectGame.UI
             _dragIcon.gameObject.SetActive(false);
         }
         
-        public void StartDragging(CreatureSlotUI slotUI, CreatureSlot slotData)
+        public void StartDragging(ItemSlotUI slotUI, ItemSlot slotData)
         {
             _draggingSlotUI = slotUI;
             _draggingSlotData = slotData;
 
-            _dragIcon.sprite = slotData.Creature.CreatureDescription.CreatureSprite;
+            _dragIcon.sprite = slotData.Item.ItemSprite;
             _dragIcon.gameObject.SetActive(true);
         }
 
@@ -57,7 +58,7 @@ namespace ProjectGame.UI
             _dragIcon.gameObject.SetActive(false);
         }
 
-        public void HandleDrop(CreatureSlotUI targetSlotUI, PointerEventData eventData)
+        public void HandleDrop(ItemSlotUI targetSlotUI, PointerEventData eventData)
         {
             if (_draggingSlotUI == null) return;
 
@@ -70,8 +71,8 @@ namespace ProjectGame.UI
             Inventory fromInventory = fromUI.Inventory;
             Inventory toInventory   = toUI.Inventory;
 
-            CreatureSlot fromSlot = fromInventory.GetSlot(fromIndex);
-            CreatureSlot toSlot   = toInventory.GetSlot(toIndex);
+            ItemSlot fromSlot = fromInventory.GetSlot(fromIndex);
+            ItemSlot toSlot = toInventory.GetSlot(toIndex);
 
             if (fromSlot == null || toSlot == null || fromSlot.IsEmpty) 
             {
@@ -79,21 +80,21 @@ namespace ProjectGame.UI
                 return;
             }
 
-            Creature creatureToMove = fromSlot.Creature;
+            Item itemToMove = fromSlot.Item;
 
             // === Логика переноса ===
             if (!toSlot.IsEmpty)
             {
                 // Своп
-                Creature temp = toSlot.Creature;
-                toSlot.Set(creatureToMove);
+                Item temp = toSlot.Item;
+                toSlot.Set(itemToMove);
                 fromSlot.Set(temp);
             }
             else
             {
                 // Простой перенос
                 fromSlot.Clear();
-                toSlot.Set(creatureToMove);
+                toSlot.Set(itemToMove);
             }
 
             // === Самое важное ===

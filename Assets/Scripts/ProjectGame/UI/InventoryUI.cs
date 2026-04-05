@@ -1,4 +1,5 @@
-﻿using Sisus.Init;
+﻿using ProjectGame.UI.InventorySystem;
+using Sisus.Init;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,18 +12,18 @@ namespace ProjectGame.UI
         [SerializeField] protected RectTransform _rectTransform;
         
         [SerializeField]
-        private CreatureSlotUI[] _slotUIs;
+        private ItemSlotUI[] _slotUIs;
         
-        private CreatureSlotUI _selectedSlot;
-        public CreatureSlotUI SelectedSlot => _selectedSlot;
+        private ItemSlotUI _selectedSlot;
+        public ItemSlotUI SelectedSlot => _selectedSlot;
 
         [SerializeField]
         private Inventory _inventory;
 
         public Inventory Inventory => _inventory;
         
-        private CreatureSlotUI _draggingSlotUI;
-        private CreatureSlot _draggingSlotData;
+        private ItemSlotUI _draggingSlotUI;
+        private ItemSlot _draggingSlotData;
         
         private RectTransform _dragIconRect;
         private DragAndDropManager _dragAndDropManager;
@@ -52,7 +53,7 @@ namespace ProjectGame.UI
             RefreshSlots();
         }
 
-        public void SetSelectedSlot(CreatureSlotUI slotUI)
+        public void SetSelectedSlot(ItemSlotUI slotUI)
         {
             _selectedSlot = slotUI;
         }

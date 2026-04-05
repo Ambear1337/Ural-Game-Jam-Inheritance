@@ -1,4 +1,5 @@
 ﻿using System;
+using ProjectGame.UI.InventorySystem;
 using Sisus.Init;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -39,9 +40,9 @@ namespace ProjectGame.Combinations
 
         private void UpdateCombinedCreatures()
         {
-            _creature1 = _combinerInventory.Slots[0].Creature;
-            _creature2 = _combinerInventory.Slots[1].Creature;
-            _resultCreature = _combinerInventory.Slots[2].Creature;
+            _creature1 = _combinerInventory.Slots[0].Item as Creature;
+            _creature2 = _combinerInventory.Slots[1].Item as Creature;
+            _resultCreature = _combinerInventory.Slots[2].Item as Creature;
         }
 
         public void TryCombineCreatures()

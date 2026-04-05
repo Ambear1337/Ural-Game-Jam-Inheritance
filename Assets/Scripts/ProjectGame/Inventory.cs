@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using ProjectGame.UI;
+using ProjectGame.UI.InventorySystem;
 using Sisus.Init;
 using UnityEngine;
 
@@ -14,18 +15,18 @@ namespace ProjectGame
         private int _maxSlots;
         public int MaxSlots => _maxSlots;
         
-        protected List<CreatureSlot> _slots;
-        public List<CreatureSlot> Slots => _slots;
+        protected List<ItemSlot> _slots;
+        public List<ItemSlot> Slots => _slots;
         
         private void Awake()
         {
             // Инициализируем слоты пустыми, если список пустой или меньше maxSlots
             if (_slots == null)
-                _slots = new List<CreatureSlot>();
+                _slots = new List<ItemSlot>();
 
             while (_slots.Count < _maxSlots)
             {
-                _slots.Add(new CreatureSlot());
+                _slots.Add(new ItemSlot());
             }
         }
 
@@ -45,15 +46,15 @@ namespace ProjectGame
         }
 
         // Добавить предмет в инвентарь, возвращает true если всё влезло
-        public virtual bool AddItem(Creature creature)
+        public virtual bool AddItem(Item item)
         {
-            if (creature == null) return false;
+            if (item == null) return false;
         
             for (int i = 0; i < _slots.Count; i++)
             {
                 if (_slots[i].IsEmpty)
                 {
-                    _slots[i].Add(creature);
+                    _slots[i].Add(item);
 
                     OnInventoryChanged?.Invoke();
                     return true;
@@ -68,13 +69,13 @@ namespace ProjectGame
         {
             if (slotIndex < 0 || slotIndex >= _slots.Count) return;
 
-            CreatureSlot slot = _slots[slotIndex];
+            ItemSlot slot = _slots[slotIndex];
             if (slot.IsEmpty) return;
 
             slot.Clear();
         }
 
-        public CreatureSlot GetSlot(int index)
+        public ItemSlot GetSlot(int index)
         {
             if (index < 0 || index >= _slots.Count) return null;
             return _slots[index];

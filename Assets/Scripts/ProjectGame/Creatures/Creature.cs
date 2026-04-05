@@ -1,9 +1,10 @@
 using ProjectGame;
 using ProjectGame.Creatures;
+using ProjectGame.UI.InventorySystem;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Creature: MonoBehaviour
+public class Creature: Item
 {
     private CreatureType _type;
     public CreatureType Type => _type;
@@ -46,6 +47,7 @@ public class Creature: MonoBehaviour
         _aggression.SetMin(0);
         _aggression.SetMax(10);
         _aggression.Set(a);
+        _itemSprite = creatureDescription.CreatureSprite;
 
         _cost = cost;
     }
