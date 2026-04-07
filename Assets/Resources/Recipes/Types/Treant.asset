@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb1c451dcbd405fb7ccb9290d4ed06a, type: 3}
   m_Name: Treant
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureTypeRecipeTemplate
-  _type1: 1
-  _type2: 4
-  _result: 11
+  _type1: {fileID: 11400000, guid: f74613b52caffe94aba217956b0489c6, type: 2}
+  _type2: {fileID: 11400000, guid: 2d83f93b2a352760484761236de63f86, type: 2}
+  _result: {fileID: 11400000, guid: 57a5b88586e42af9ca83a700c976d33e, type: 2}

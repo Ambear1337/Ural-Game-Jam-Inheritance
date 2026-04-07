@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb1c451dcbd405fb7ccb9290d4ed06a, type: 3}
   m_Name: Parasite
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureTypeRecipeTemplate
-  _type1: 3
-  _type2: 4
-  _result: 15
+  _type1: {fileID: 11400000, guid: a0efc441f3438cb80a4416423dd4275d, type: 2}
+  _type2: {fileID: 11400000, guid: 2d83f93b2a352760484761236de63f86, type: 2}
+  _result: {fileID: 11400000, guid: 8c500b98cca8dde0ba0ebe452b1d0ee1, type: 2}

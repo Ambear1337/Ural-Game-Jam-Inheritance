@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb1c451dcbd405fb7ccb9290d4ed06a, type: 3}
   m_Name: Coloss
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureTypeRecipeTemplate
-  _type1: 0
-  _type2: 2
-  _result: 6
+  _type1: {fileID: 11400000, guid: 2c87760bca13e77bfbf154de62c4619b, type: 2}
+  _type2: {fileID: 11400000, guid: 59cec5c204aefa143879abf0763b96fc, type: 2}
+  _result: {fileID: 11400000, guid: e1ddfad0825421f3da010fb84ddf2855, type: 2}

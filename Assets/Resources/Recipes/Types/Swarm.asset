@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb1c451dcbd405fb7ccb9290d4ed06a, type: 3}
   m_Name: Swarm
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureTypeRecipeTemplate
-  _type1: 3
-  _type2: 3
-  _result: 14
+  _type1: {fileID: 11400000, guid: a0efc441f3438cb80a4416423dd4275d, type: 2}
+  _type2: {fileID: 11400000, guid: a0efc441f3438cb80a4416423dd4275d, type: 2}
+  _result: {fileID: 11400000, guid: 4693c7eb937b28e06bb999af05d6c6ad, type: 2}

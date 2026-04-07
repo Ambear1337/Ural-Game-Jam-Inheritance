@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb1c451dcbd405fb7ccb9290d4ed06a, type: 3}
   m_Name: Wyvern
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureTypeRecipeTemplate
-  _type1: 1
-  _type2: 2
-  _result: 9
+  _type1: {fileID: 11400000, guid: f74613b52caffe94aba217956b0489c6, type: 2}
+  _type2: {fileID: 11400000, guid: 59cec5c204aefa143879abf0763b96fc, type: 2}
+  _result: {fileID: 11400000, guid: 00fc0990048a2be8baca1dddadd7b4e5, type: 2}
