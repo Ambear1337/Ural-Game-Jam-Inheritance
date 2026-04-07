@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ProjectGame.Creatures;
+using UnityEngine;
 
 namespace ProjectGame.Combinations
 {

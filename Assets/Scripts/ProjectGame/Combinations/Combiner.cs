@@ -1,4 +1,5 @@
 ﻿using System;
+using ProjectGame.Creatures;
 using ProjectGame.UI.InventorySystem;
 using Sisus.Init;
 using UnityEngine;
@@ -62,7 +63,7 @@ namespace ProjectGame.Combinations
             
             Debug.Log("New type is " + newType + ", new element is " + newElement);
 
-            if (newType == CreatureType.None || newElement == CreatureElement.None)
+            if (newType == null || newElement == null)
             {
                 Debug.LogError("Something is NONE");
                 return;

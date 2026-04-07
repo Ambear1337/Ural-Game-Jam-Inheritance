@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ProjectGame.Creatures;
 using ProjectGame.UI.InventorySystem;
 using UnityEngine;
 

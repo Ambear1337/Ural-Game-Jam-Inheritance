@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ProjectGame.Creatures;
 using UnityEngine;
 
 namespace ProjectGame.Quests

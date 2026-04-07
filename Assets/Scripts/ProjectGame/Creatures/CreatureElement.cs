@@ -1,42 +1,13 @@
 using UnityEngine;
 
-public enum CreatureElement
+namespace ProjectGame.Creatures
 {
-    Fire,
-    Water,
-    Earth,
-    Air,
-    Void,
-    Light,
-    Poison,
-    Death,
-    Steam,
-    Magma,
-    Explosion,
-    Plasma,
-    Energy,
-    Acid,
-    Ash,
-    Mud,
-    Ice,
-    Abyss,
-    Rainbow,
-    Toxin,
-    Rot,
-    Dust,
-    Space,
-    Crystal,
-    Slime,
-    Undead,
-    Vacuum,
-    Ether,
-    Smog,
-    Wind,
-    Paradox,
-    Corruption,
-    Oblivion,
-    Antidote,
-    Ghost,
-    Plague,
-    None
+    public class CreatureElement: ScriptableObject
+    {
+        [SerializeField] private string _creatureElementName;
+        public string CreatureElementName => _creatureElementName;
+        [SerializeField] private Sprite _creatureElementSprite;
+        public Sprite CreatureElementSprite => _creatureElementSprite;
+        [SerializeField] private int _cost;
+    }
 }

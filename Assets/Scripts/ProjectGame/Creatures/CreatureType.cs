@@ -1,23 +1,13 @@
 using UnityEngine;
 
-public enum CreatureType
+public class CreatureType: ScriptableObject
 {
-    Golem,
-    Dragon,
-    Animal,
-    Insect,
-    Plant,
-    Gargoyle,
-    Coloss,
-    Automaton,
-    Ent,
-    Wyvern,
-    Drake,
-    Treant,
-    Vermin,
-    Beast,
-    Swarm,
-    Parasite,
-    Shell,
-    None
+    [SerializeField] 
+    private string _creatureTypeName;
+    public string CreatureTypeName => _creatureTypeName;
+    [SerializeField]
+    private Sprite _creatureTypeSprite;
+    public Sprite CreatureTypeSprite => _creatureTypeSprite;
+    [SerializeField] 
+    private int _cost;
 }

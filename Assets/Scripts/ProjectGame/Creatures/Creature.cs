@@ -21,23 +21,13 @@ public class Creature: Item
     [SerializeField]
     private ValueComponent _aggression;
     public ValueComponent Aggression => _aggression;
-    private CreatureDescription _creatureDescription;
-    public CreatureDescription CreatureDescription => _creatureDescription;
-    private CreatureElementDescription _elementDescription;
-    public CreatureElementDescription ElementDescription => _elementDescription;
 
-    private int _cost = 10;
-    public int Cost => _cost;
-
-    public void SetupCreature(CreatureDescription creatureDescription, CreatureElementDescription elementDescription, int s, int i, int a, int cost)
+    public void SetupCreature(CreatureType type, CreatureElement element, int s, int i, int a)
     {
-        _creatureDescription = creatureDescription;
-        _elementDescription = elementDescription;
+        if (!type || !element) return;
 
-        if (!_creatureDescription || !_elementDescription) return;
-
-        _type = _creatureDescription.CreatureType;
-        _element = _elementDescription.CreatureElement;
+        _type = type;
+        _element = element;
         _size.SetMin(0);
         _size.SetMax(10);
         _size.Set(s);
@@ -47,8 +37,7 @@ public class Creature: Item
         _aggression.SetMin(0);
         _aggression.SetMax(10);
         _aggression.Set(a);
-        _itemSprite = creatureDescription.CreatureSprite;
 
-        _cost = cost;
+        _itemSprite = type.CreatureTypeSprite;
     }
 }

@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Sisus.Init;
 using System.Collections.Generic;
+using ProjectGame.Creatures;
 
 namespace ProjectGame.Combinations
 {
