@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "CreatureType", menuName = "Creature/CreatureType")]
 public class CreatureType: ScriptableObject
 {
     [SerializeField] 

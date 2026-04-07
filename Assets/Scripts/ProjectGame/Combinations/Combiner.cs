@@ -81,8 +81,8 @@ namespace ProjectGame.Combinations
             
             // Спавним новое существо
             _spawner.SpawnCombinedCreature(
-                _spawner.FindCreatureDescriptionByCreatureType(newType),
-                _spawner.FindCreatureElementDescriptionByCreatureElement(newElement),
+                newType,
+                newElement,
                 newSize,
                 newIntelligence,
                 newAggression

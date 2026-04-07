@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace ProjectGame.Creatures
 {
+    [CreateAssetMenu(fileName = "CreatureElement", menuName = "Creature/CreatureElement")]
     public class CreatureElement: ScriptableObject
     {
         [SerializeField] private string _creatureElementName;

@@ -14,9 +14,9 @@ namespace ProjectGame.UI
         
         private Material _cachedMaterial; // Кэшируем экземпляр
 
-        protected override void Awake()
+        protected override void OnAwake()
         {
-            base.Awake();
+            base.OnAwake();
             // Создаём уникальный материал для этого слота при старте
             if (itemImage != null && itemImage.material != null)
             {

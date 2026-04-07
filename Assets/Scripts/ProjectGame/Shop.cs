@@ -27,7 +27,7 @@ namespace ProjectGame
 
         public void SellCreature(Creature creature)
         {
-            _player.AddCoins(creature.Cost);
+            _player.AddCoins(1);
             _sellService.SellCreature(creature);
         }
     }

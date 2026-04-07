@@ -6,7 +6,8 @@
         "InitArgs",
         "InitArgs.Services",
         "Unity.TextMeshPro",
-        "Unity.InputSystem"
+        "Unity.InputSystem",
+        "Unity.InternalAPIEditorBridgeDev.004"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

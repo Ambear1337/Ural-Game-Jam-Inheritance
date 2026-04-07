@@ -3,6 +3,7 @@ using UnityEngine;
 using Sisus.Init;
 using System.Collections.Generic;
 using ProjectGame.Creatures;
+using Random = UnityEngine.Random;
 
 namespace ProjectGame.Combinations
 {
@@ -12,16 +13,48 @@ namespace ProjectGame.Combinations
         [SerializeField] private List<CreatureTypeRecipeTemplate> _typeCombinations;
         [SerializeField] private List<CreatureElementRecipeTemplate> _elementCombinations;
 
+        [SerializeField] private List<CreatureType> _creatureTypes;
+        [SerializeField] private List<CreatureElement> _creatureElements;
+        
+        public List<CreatureType> CreatureTypes => _creatureTypes;
+        public List<CreatureElement> CreatureElements => _creatureElements;
+
         private RecipesBook _recipesBook;
         
         protected override void Init(RecipesBook argument)
         {
             _recipesBook = argument;
         }
+        
+        public CreatureType GetRandomCreatureType()
+        {
+            int randomIndex = Random.Range(0, _creatureTypes.Count);
+
+            if (_creatureTypes[randomIndex] == null)
+            {
+                Debug.LogError("Тип существа не найден!");
+                return null;
+            }
+
+            return _creatureTypes[randomIndex];
+        }
+        
+        public CreatureElement GetRandomCreatureElement()
+        {
+            int randomIndex = Random.Range(0, _creatureElements.Count);
+
+            if (_creatureElements[randomIndex] == null)
+            {
+                Debug.LogError("Элемент существа не найден!");
+                return null;
+            }
+        
+            return _creatureElements[randomIndex];
+        }
 
         public CreatureType TryGetTypeResult(CreatureType type1, CreatureType type2)
         {
-            CreatureType result = CreatureType.None;
+            CreatureType result;
             
             for (int i = 0; i < _typeCombinations.Count; i++)
             {
@@ -33,12 +66,12 @@ namespace ProjectGame.Combinations
                 return result;
             }
 
-            return result;
+            return null;
         }
 
         public CreatureElement TryGetElementResult(CreatureElement element1, CreatureElement element2)
         {
-            CreatureElement result = CreatureElement.None;
+            CreatureElement result;
             
             for (int i = 0; i < _elementCombinations.Count; i++)
             {
@@ -50,7 +83,7 @@ namespace ProjectGame.Combinations
                 }
             }
 
-            return result;
+            return null;
         }
 
         private void AddNewTypeRecipeToBook(CreatureTypeRecipeTemplate typeRecipe)
