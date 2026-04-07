@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25748adbfe24eb290434a3875781e91, type: 3}
   m_Name: Plague
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureElementRecipeTemplate
-  _element1: 6
-  _element2: 7
-  _result: 35
+  _element1: {fileID: 11400000, guid: f31595652d08b1d499fb554aeaeac336, type: 2}
+  _element2: {fileID: 11400000, guid: 02a4fa3ebf9ff3342b1611ca97166b41, type: 2}
+  _result: {fileID: 11400000, guid: 079f355c9fca2c6438280218e1a21232, type: 2}

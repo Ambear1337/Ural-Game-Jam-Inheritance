@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25748adbfe24eb290434a3875781e91, type: 3}
   m_Name: Explosion
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureElementRecipeTemplate
-  _element1: 0
-  _element2: 3
-  _result: 10
+  _element1: {fileID: 11400000, guid: 61a3987ec41e1964b83f50cf78e58c5e, type: 2}
+  _element2: {fileID: 11400000, guid: 20372a7671f38844a91d15fdfd3c4f27, type: 2}
+  _result: {fileID: 11400000, guid: cb0b192cd868c1a41bc0e1ea54efb69d, type: 2}

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25748adbfe24eb290434a3875781e91, type: 3}
   m_Name: Paradox
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureElementRecipeTemplate
-  _element1: 4
-  _element2: 5
-  _result: 30
+  _element1: {fileID: 11400000, guid: 251d64c18356d2545b7de382ae77d010, type: 2}
+  _element2: {fileID: 11400000, guid: fd617c15f059d884e98ee3cd95113977, type: 2}
+  _result: {fileID: 11400000, guid: e28b2815a6e29d34c9ac00624ecdc44b, type: 2}

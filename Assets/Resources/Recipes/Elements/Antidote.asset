@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25748adbfe24eb290434a3875781e91, type: 3}
   m_Name: Antidote
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureElementRecipeTemplate
-  _element1: 5
-  _element2: 6
-  _result: 33
+  _element1: {fileID: 11400000, guid: 02a4fa3ebf9ff3342b1611ca97166b41, type: 2}
+  _element2: {fileID: 11400000, guid: fd617c15f059d884e98ee3cd95113977, type: 2}
+  _result: {fileID: 11400000, guid: 2c4c880c283673c4981f38ceabf7a558, type: 2}

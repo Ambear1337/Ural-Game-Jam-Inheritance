@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25748adbfe24eb290434a3875781e91, type: 3}
   m_Name: Mud
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureElementRecipeTemplate
-  _element1: 1
-  _element2: 2
-  _result: 15
+  _element1: {fileID: 11400000, guid: 36b7254bbb1979648af8d9064a83ecf3, type: 2}
+  _element2: {fileID: 11400000, guid: 04cfc31924124d8479360d992952e231, type: 2}
+  _result: {fileID: 11400000, guid: 3e56539493ce82f46aa61012746be52f, type: 2}

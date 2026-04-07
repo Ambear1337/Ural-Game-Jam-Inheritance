@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25748adbfe24eb290434a3875781e91, type: 3}
   m_Name: Ice
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureElementRecipeTemplate
-  _element1: 1
-  _element2: 3
-  _result: 16
+  _element1: {fileID: 11400000, guid: 20372a7671f38844a91d15fdfd3c4f27, type: 2}
+  _element2: {fileID: 11400000, guid: 04cfc31924124d8479360d992952e231, type: 2}
+  _result: {fileID: 11400000, guid: 51b661f61a241f14ab5a75c846819e42, type: 2}

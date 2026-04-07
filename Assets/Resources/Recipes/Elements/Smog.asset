@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25748adbfe24eb290434a3875781e91, type: 3}
   m_Name: Smog
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureElementRecipeTemplate
-  _element1: 3
-  _element2: 6
-  _result: 28
+  _element1: {fileID: 11400000, guid: 02a4fa3ebf9ff3342b1611ca97166b41, type: 2}
+  _element2: {fileID: 11400000, guid: 20372a7671f38844a91d15fdfd3c4f27, type: 2}
+  _result: {fileID: 11400000, guid: 23c3a5925af73da4e9820fddef62304a, type: 2}

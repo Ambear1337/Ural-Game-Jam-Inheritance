@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25748adbfe24eb290434a3875781e91, type: 3}
   m_Name: Oblivion
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureElementRecipeTemplate
-  _element1: 4
-  _element2: 7
-  _result: 32
+  _element1: {fileID: 11400000, guid: f31595652d08b1d499fb554aeaeac336, type: 2}
+  _element2: {fileID: 11400000, guid: 251d64c18356d2545b7de382ae77d010, type: 2}
+  _result: {fileID: 11400000, guid: 1555ad7ea60120a4182a3169ad649369, type: 2}

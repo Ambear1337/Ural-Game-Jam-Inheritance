@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25748adbfe24eb290434a3875781e91, type: 3}
   m_Name: Rainbow
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureElementRecipeTemplate
-  _element1: 1
-  _element2: 5
-  _result: 18
+  _element1: {fileID: 11400000, guid: fd617c15f059d884e98ee3cd95113977, type: 2}
+  _element2: {fileID: 11400000, guid: 04cfc31924124d8479360d992952e231, type: 2}
+  _result: {fileID: 11400000, guid: 9282053d67c8a644b8f0f07dfd901ded, type: 2}

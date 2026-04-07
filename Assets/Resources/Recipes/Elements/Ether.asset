@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25748adbfe24eb290434a3875781e91, type: 3}
   m_Name: Ether
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureElementRecipeTemplate
-  _element1: 3
-  _element2: 5
-  _result: 27
+  _element1: {fileID: 11400000, guid: fd617c15f059d884e98ee3cd95113977, type: 2}
+  _element2: {fileID: 11400000, guid: 20372a7671f38844a91d15fdfd3c4f27, type: 2}
+  _result: {fileID: 11400000, guid: 2b502df3f6bb58c4c9107bebd634717f, type: 2}

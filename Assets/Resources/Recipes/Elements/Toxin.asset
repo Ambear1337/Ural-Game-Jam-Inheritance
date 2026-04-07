@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25748adbfe24eb290434a3875781e91, type: 3}
   m_Name: Toxin
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureElementRecipeTemplate
-  _element1: 1
-  _element2: 6
-  _result: 19
+  _element1: {fileID: 11400000, guid: 02a4fa3ebf9ff3342b1611ca97166b41, type: 2}
+  _element2: {fileID: 11400000, guid: 04cfc31924124d8479360d992952e231, type: 2}
+  _result: {fileID: 11400000, guid: a9bd52a0abf0d7041931ecab85985a28, type: 2}

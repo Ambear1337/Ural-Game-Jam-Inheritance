@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25748adbfe24eb290434a3875781e91, type: 3}
   m_Name: Vacuum
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureElementRecipeTemplate
-  _element1: 3
-  _element2: 4
-  _result: 26
+  _element1: {fileID: 11400000, guid: 20372a7671f38844a91d15fdfd3c4f27, type: 2}
+  _element2: {fileID: 11400000, guid: 251d64c18356d2545b7de382ae77d010, type: 2}
+  _result: {fileID: 11400000, guid: 26fbd3ec84844674cbf9ab407f8453be, type: 2}

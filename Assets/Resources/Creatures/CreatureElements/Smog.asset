@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 239924049ecf3a34a9ae2e9308a499bc, type: 3}
+  m_Script: {fileID: 11500000, guid: eb2d6ca3495911c42989e5120dcfd661, type: 3}
   m_Name: Smog
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Creatures.CreatureElementDescription
+  _creatureElementName: Smog
   _creatureElementSprite: {fileID: 21300000, guid: 236786086d9a0544d9129b7202e7f9cf, type: 3}
-  _creatureElement: 28
+  _cost: 45

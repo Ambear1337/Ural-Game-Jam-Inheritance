@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25748adbfe24eb290434a3875781e91, type: 3}
   m_Name: Wind
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureElementRecipeTemplate
-  _element1: 3
-  _element2: 7
-  _result: 29
+  _element1: {fileID: 11400000, guid: f31595652d08b1d499fb554aeaeac336, type: 2}
+  _element2: {fileID: 11400000, guid: 20372a7671f38844a91d15fdfd3c4f27, type: 2}
+  _result: {fileID: 11400000, guid: 3715cadb26567664dace5a5f781efa75, type: 2}

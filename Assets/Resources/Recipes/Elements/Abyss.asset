@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25748adbfe24eb290434a3875781e91, type: 3}
   m_Name: Abyss
   m_EditorClassIdentifier: ProjectGame::ProjectGame.Combinations.CreatureElementRecipeTemplate
-  _element1: 1
-  _element2: 4
-  _result: 17
+  _element1: {fileID: 11400000, guid: 251d64c18356d2545b7de382ae77d010, type: 2}
+  _element2: {fileID: 11400000, guid: 04cfc31924124d8479360d992952e231, type: 2}
+  _result: {fileID: 11400000, guid: 4640df0cdb0431042b80ad67a37cf509, type: 2}
