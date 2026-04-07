@@ -38,7 +38,7 @@ namespace ProjectGame.UI
                 itemImage.material = _cachedMaterial;
             }
 
-            int currentElementIndex = 0;
+            int currentElementIndex = 40;
             for (int i = 0; i < _elements.Count; i++)
             {
                 if (_slotData.Item is Creature creature && _elements[i] == creature.Element)

@@ -59,18 +59,16 @@ namespace ProjectGame.Combinations
 
             // Пытаемся получить результат рецепта
             CreatureType newType = _recipeService.TryGetTypeResult(_creature1.Type, _creature2.Type);
-            CreatureElement newElement = _recipeService.TryGetElementResult(_creature1.Element, _creature2.Element);
             
-            Debug.Log("New type is " + newType + ", new element is " + newElement);
+            Debug.Log("New type is " + newType);
 
-            if (newType == null || newElement == null)
+            if (newType == null)
             {
-                Debug.LogError("Something is NONE");
+                Debug.LogError("New type is NONE");
                 return;
             }
 
             Debug.Log($"Combining { _creature1.Type } + { _creature2.Type } → {newType}");
-            Debug.Log($"Combining { _creature1.Element } + { _creature2.Element } → {newElement}");
 
             // Вычисляем средние характеристики (можно сделать более сложную формулу позже)
             int newSize = (_creature1.Size.CurrentValue + _creature2.Size.CurrentValue) / 2;
@@ -82,7 +80,7 @@ namespace ProjectGame.Combinations
             // Спавним новое существо
             _spawner.SpawnCombinedCreature(
                 newType,
-                newElement,
+                null,
                 newSize,
                 newIntelligence,
                 newAggression

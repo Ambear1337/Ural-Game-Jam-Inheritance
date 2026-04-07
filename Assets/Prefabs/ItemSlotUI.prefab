@@ -211,7 +211,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: ProjectGame::ProjectGame.UI.CreatureSlotUI
   itemImage: {fileID: 2418476692043089898}
-  _elements: 110000000d00000003000000210000000e0000001f000000170000000700000015000000020000000c0000001b0000000a00000000000000220000001000000005000000090000000f000000200000001e000000230000000b000000060000001200000014000000180000001c000000160000000800000013000000190000001a00000004000000010000001d000000
+  _elements:
+  - {fileID: 11400000, guid: 4640df0cdb0431042b80ad67a37cf509, type: 2}
+  - {fileID: 11400000, guid: 1b9e192c47578eb45999ab555d7370a2, type: 2}
+  - {fileID: 11400000, guid: 20372a7671f38844a91d15fdfd3c4f27, type: 2}
+  - {fileID: 11400000, guid: 2c4c880c283673c4981f38ceabf7a558, type: 2}
+  - {fileID: 11400000, guid: 4c370ebedd93a4747be63469f61afaf2, type: 2}
+  - {fileID: 11400000, guid: 2051c539717d008448745cccc0587a96, type: 2}
+  - {fileID: 11400000, guid: f1d14f34b4f5615469e78d52ada7dd7d, type: 2}
+  - {fileID: 11400000, guid: f31595652d08b1d499fb554aeaeac336, type: 2}
+  - {fileID: 11400000, guid: 3e1d7151ddfbb8849b94571cbccb7915, type: 2}
+  - {fileID: 11400000, guid: 36b7254bbb1979648af8d9064a83ecf3, type: 2}
+  - {fileID: 11400000, guid: 1650247adfac9f545bcecf9214345f88, type: 2}
+  - {fileID: 11400000, guid: 2b502df3f6bb58c4c9107bebd634717f, type: 2}
+  - {fileID: 11400000, guid: cb0b192cd868c1a41bc0e1ea54efb69d, type: 2}
+  - {fileID: 11400000, guid: 61a3987ec41e1964b83f50cf78e58c5e, type: 2}
+  - {fileID: 11400000, guid: 94e8505bc70524d4583644ecd218144d, type: 2}
+  - {fileID: 11400000, guid: 51b661f61a241f14ab5a75c846819e42, type: 2}
+  - {fileID: 11400000, guid: fd617c15f059d884e98ee3cd95113977, type: 2}
+  - {fileID: 11400000, guid: f19833e75e89db9448405fe36550d522, type: 2}
+  - {fileID: 11400000, guid: 3e56539493ce82f46aa61012746be52f, type: 2}
+  - {fileID: 11400000, guid: 1555ad7ea60120a4182a3169ad649369, type: 2}
+  - {fileID: 11400000, guid: e28b2815a6e29d34c9ac00624ecdc44b, type: 2}
+  - {fileID: 11400000, guid: 079f355c9fca2c6438280218e1a21232, type: 2}
+  - {fileID: 11400000, guid: a859b7b6c5875754d84c4cf3fd6445ce, type: 2}
+  - {fileID: 11400000, guid: 02a4fa3ebf9ff3342b1611ca97166b41, type: 2}
+  - {fileID: 11400000, guid: 9282053d67c8a644b8f0f07dfd901ded, type: 2}
+  - {fileID: 11400000, guid: b635a1b20757c794b9e9f008a88ed1de, type: 2}
+  - {fileID: 11400000, guid: d594b97bb96b3474797cfd2aa9e821d6, type: 2}
+  - {fileID: 11400000, guid: 23c3a5925af73da4e9820fddef62304a, type: 2}
+  - {fileID: 11400000, guid: 4c45ca4f713cd7840a7735389f8c0c7e, type: 2}
+  - {fileID: 11400000, guid: 9b55543a580f7434d90a9c85a1479dae, type: 2}
+  - {fileID: 11400000, guid: a9bd52a0abf0d7041931ecab85985a28, type: 2}
+  - {fileID: 11400000, guid: 38b28d9d678c98a4e91e4a36fe2db7aa, type: 2}
+  - {fileID: 11400000, guid: 26fbd3ec84844674cbf9ab407f8453be, type: 2}
+  - {fileID: 11400000, guid: 251d64c18356d2545b7de382ae77d010, type: 2}
+  - {fileID: 11400000, guid: 04cfc31924124d8479360d992952e231, type: 2}
+  - {fileID: 11400000, guid: 3715cadb26567664dace5a5f781efa75, type: 2}
 --- !u!225 &8458164801735842184
 CanvasGroup:
   m_ObjectHideFlags: 0

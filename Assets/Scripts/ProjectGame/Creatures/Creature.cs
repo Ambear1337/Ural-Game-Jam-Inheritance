@@ -24,10 +24,10 @@ public class Creature: Item
 
     public void SetupCreature(CreatureType type, CreatureElement element, int s, int i, int a)
     {
-        if (!type || !element) return;
-
+        if (!type) return;
         _type = type;
-        _element = element;
+        if (element) _element = element; 
+        
         _size.SetMin(0);
         _size.SetMax(10);
         _size.Set(s);
