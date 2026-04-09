@@ -1,18 +1,16 @@
-﻿using Sisus.Init;
+﻿using System.Collections.Generic;
+using Sisus.Init;
 using UnityEngine;
 
-namespace ProjectGame
+namespace ProjectGame.Shop
 {
     [Service(FindFromScene = true)]
-    public class Shop: MonoBehaviour<Player, SellService>
+    public class HuntersShop: MonoBehaviour<Player, SellService>
     {
         private Player _player;
         private SellService _sellService;
 
-        private int _baseCreatureCost = 10;
-        public int BaseCreatureCost => _baseCreatureCost;
-        private int _hybridCreatureCost = 25;
-        public int HybridCreatureCost => _hybridCreatureCost;
+        
         
         protected override void Init(Player argument, SellService sellService)
         {
@@ -20,9 +18,9 @@ namespace ProjectGame
             _sellService = sellService;
         }
         
-        public void BuyCreature()
+        public void BuyCreature(ShopCell cell)
         {
-            
+            _player.TryToSubtractCoins(100);
         }
 
         public void SellCreature(Creature creature)

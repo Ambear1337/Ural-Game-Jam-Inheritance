@@ -1,11 +1,13 @@
-using ProjectGame;
 using ProjectGame.Creatures;
+using ProjectGame.Shop;
 using ProjectGame.UI.InventorySystem;
 using UnityEngine;
-using UnityEngine.Rendering;
 
-public class Creature: Item
+public class Creature: Item, IProduct
 {
+    public string ProductName { get; set; }
+    public int Cost { get; set; }
+    
     private CreatureType _type;
     public CreatureType Type => _type;
     
@@ -39,5 +41,11 @@ public class Creature: Item
         _aggression.Set(a);
 
         _itemSprite = type.CreatureTypeSprite;
+        
+        ProductName = type.CreatureTypeName;
+        if (element)
+        {
+            Cost = type.Cost * element.Cost;
+        }
     }
 }

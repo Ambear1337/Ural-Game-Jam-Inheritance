@@ -10,5 +10,6 @@ namespace ProjectGame.Creatures
         [SerializeField] private Sprite _creatureElementSprite;
         public Sprite CreatureElementSprite => _creatureElementSprite;
         [SerializeField] private int _cost;
+        public int Cost => _cost;
     }
 }

@@ -1,19 +1,20 @@
 using ProjectGame;
 using ProjectGame.Combinations;
 using ProjectGame.Creatures;
+using ProjectGame.Shop;
 using Sisus.Init;
 using UnityEngine;
 
 [Service(FindFromScene = true)]
-public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner, Shop, RecipeService>
+public class CreatureSpawner: MonoBehaviour<CreaturesPool, Player, Combiner, HuntersShop, RecipeService>
 {
     private CreaturesPool _creaturesPool;
     private Player _player;
     private Combiner _combiner;
-    private Shop _shop;
+    private HuntersShop _shop;
     private RecipeService _recipeService;
 
-    protected override void Init(CreaturesPool firstArgument, Player secondArgument, Combiner combiner, Shop shop, RecipeService recipeService)
+    protected override void Init(CreaturesPool firstArgument, Player secondArgument, Combiner combiner, HuntersShop shop, RecipeService recipeService)
     {
         _creaturesPool = firstArgument;
         _player = secondArgument;

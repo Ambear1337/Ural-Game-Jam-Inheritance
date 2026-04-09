@@ -7,5 +7,7 @@ namespace ProjectGame.UI.InventorySystem
     {
         protected Sprite _itemSprite;
         public Sprite ItemSprite => _itemSprite;
+        protected string _itemName;
+        public string ItemName => _itemName;
     }
 }

@@ -3,20 +3,20 @@ using ProjectGame.UI;
 using Sisus.Init;
 using UnityEngine;
 
-namespace ProjectGame
+namespace ProjectGame.Shop
 {
     [Service(FindFromScene = true)]
-    public class SellService: MonoBehaviour<CreatureSpawner, Shop>
+    public class SellService: MonoBehaviour<CreatureSpawner, HuntersShop>
     {
         [SerializeField] private SellInventory _inventory;
 
         private CreatureSpawner _spawner;
-        private Shop _shop;
+        private HuntersShop _huntersShop;
         
-        protected override void Init(CreatureSpawner argument, Shop shop)
+        protected override void Init(CreatureSpawner argument, HuntersShop huntersShop)
         {
             _spawner = argument;
-            _shop = shop;
+            _huntersShop = huntersShop;
         }
 
         public void SellCreature(Creature creature)

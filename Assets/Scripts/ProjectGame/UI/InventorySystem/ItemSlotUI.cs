@@ -1,4 +1,5 @@
 using System;
+using ProjectGame.Shop;
 using Sisus.Init;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,7 +7,7 @@ using UnityEngine.UI;
 
 namespace ProjectGame.UI.InventorySystem
 {
-    public class ItemSlotUI: MonoBehaviour<DragAndDropManager, Shop>, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+    public class ItemSlotUI: MonoBehaviour<DragAndDropManager, HuntersShop>, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
     {
         [SerializeField] protected Image itemImage;
         
@@ -23,12 +24,12 @@ namespace ProjectGame.UI.InventorySystem
         private RectTransform _rectTransform;
         
         private DragAndDropManager _dragAndDropManager;
-        protected Shop _shop;
+        protected HuntersShop HuntersShop;
         
-        protected override void Init(DragAndDropManager argument, Shop shop)
+        protected override void Init(DragAndDropManager argument, HuntersShop shop)
         {
             _dragAndDropManager = argument;
-            _shop = shop;
+            HuntersShop = shop;
         }
         
         // ReSharper disable Unity.PerformanceAnalysis

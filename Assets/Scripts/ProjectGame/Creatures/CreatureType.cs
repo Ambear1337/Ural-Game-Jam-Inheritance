@@ -11,4 +11,5 @@ public class CreatureType: ScriptableObject
     public Sprite CreatureTypeSprite => _creatureTypeSprite;
     [SerializeField] 
     private int _cost;
+    public int Cost => _cost;
 }
